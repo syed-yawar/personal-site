@@ -2,9 +2,9 @@
 name: Deploy to GitHub Pages
 
 on:
-  # Runs on pushes targeting the main branch
+  # Keep this away from main to avoid conflict with AWS deployment workflow.
   push:
-    branches: ["main"]
+    branches: ["gh-pages"]
   # Allows manual deployment from Actions tab
   workflow_dispatch:
 
