@@ -7,7 +7,7 @@ Fork this repo and make it your own personal site. You can have it running in 30
 ## Before You Start
 
 1. Fork and clone the repository
-2. Run `npm install` then `npm run dev`
+2. Run `yarn install` then `yarn dev`
 3. Open http://localhost:3000 to see the site
 4. Keep the dev server running—changes appear instantly
 
@@ -19,7 +19,7 @@ Work through these steps in order for the smoothest experience.
 
 | What to change  | File                                        | Notes                           |
 | --------------- | ------------------------------------------- | ------------------------------- |
-| Site URL        | `package.json` → `homepage`                 | Your domain or GitHub Pages URL |
+| Site URL        | `src/data/profile.ts`                        | Your production domain URL       |
 | Social links    | `src/data/contact.ts`                       | Add/remove platforms as needed  |
 | Portrait photos | `public/images/me-light.jpg`, `me-dark.jpg` | Square images, ~256×256px       |
 | Hero content    | `src/components/Template/Hero.tsx`          | Your name, tagline              |
@@ -90,25 +90,22 @@ grep -r "template-owner" .
 
 ## Deployment
 
-### GitHub Pages (Recommended)
+### Cloudflare Pages (Recommended)
 
-1. Update `homepage` in `package.json` with your URL
-2. Set your domain in `public/CNAME` (e.g., `yoursite.com`)
-3. In your repo settings, enable GitHub Pages with source: GitHub Actions
-4. Push to `main`—it deploys automatically
+1. Create a Cloudflare Pages project
+2. Add GitHub repository Variables/Secrets used by `.github/workflows/deploy-cloudflare.yml`
+3. Push to `main` or run the workflow manually from Actions
+4. Confirm the deploy URL in Cloudflare Pages
 
 ### Custom Domain
 
 1. Purchase a domain from Squarespace Domains, Cloudflare, or Namecheap
-2. Add your domain to `public/CNAME`:
-   ```bash
-   echo "yourdomain.com" > public/CNAME
-   ```
-3. Configure DNS per [GitHub's documentation](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site)
+2. Configure DNS records in your DNS provider to point to Cloudflare Pages
+3. Add the domain in your Cloudflare Pages project settings and complete SSL setup
 
 ### Other Hosts
 
-Run `npm run build` and upload the `out/` directory to any static host (Vercel, Netlify, S3, etc.).
+Run `yarn build` and upload the `out/` directory to any static host (Vercel, Netlify, S3, etc.).
 
 ## Common Tasks
 
@@ -143,11 +140,11 @@ Edit `app/tailwind.css`. Find `:root` (light mode) and `[data-theme="dark"]` (da
 
 | Problem                    | Solution                                                   |
 | -------------------------- | ---------------------------------------------------------- |
-| Port 3000 in use           | `npm run dev -- -p 3001`                                   |
+| Port 3000 in use           | `yarn dev -- -p 3001`                                      |
 | Styles not updating        | Hard refresh: Cmd+Shift+R (Mac) or Ctrl+Shift+R (Windows)  |
 | Images not appearing       | Use `/images/...` not `public/images/...` in code          |
-| Build failing              | Run `npm run type-check` to find errors                    |
-| CSS 404 or wrong path      | Check `homepage` in `package.json` matches your deploy URL |
+| Build failing              | Run `yarn type-check` to find errors                       |
+| CSS 404 or wrong path      | Check `NEXT_PUBLIC_SITE_URL` and verify asset paths         |
 | Git line endings (Windows) | `git config core.autocrlf input`                           |
 
 ## Getting Help

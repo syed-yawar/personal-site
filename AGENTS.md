@@ -5,12 +5,12 @@ Guidance for AI coding agents working on this Next.js personal portfolio site.
 ## Quick Commands
 
 ```bash
-npm run dev          # Start dev server (localhost:3000)
-npm run format       # Format with Prettier + Biome (run before committing)
-npm run lint         # Biome linting
-npm run type-check   # TypeScript checking
-npm test             # Vitest tests
-npm run build        # Production build + static export
+yarn dev          # Start dev server (localhost:3000)
+yarn format       # Format with Prettier + Biome (run before committing)
+yarn lint         # Biome linting
+yarn type-check   # TypeScript checking
+yarn test         # Vitest tests
+yarn build        # Production build + static export
 ```
 
 **File-scoped (faster feedback):**
@@ -18,7 +18,7 @@ npm run build        # Production build + static export
 ```bash
 npx tsc --noEmit path/to/file.tsx           # Type check single file
 npx biome check path/to/file.tsx            # Lint single file
-npm test -- ComponentName                    # Test single component
+yarn test ComponentName                      # Test single component
 ```
 
 ## Project Structure
@@ -44,7 +44,7 @@ docs/                 → Documentation
 - Use existing patterns from similar components
 - Mark client components with `'use client'`
 - Follow conventional commits: `feat:`, `fix:`, `chore:`, `docs:`
-- Run `npm run format` before committing (CI enforces this)
+- Run `yarn format` before committing (CI enforces this)
 
 **Don't:**
 
@@ -52,7 +52,7 @@ docs/                 → Documentation
 - Create god components or monolithic files
 - Hard-code colors—use CSS variables (`var(--color-*)`)
 - Skip type annotations on function parameters
-- Commit without running `npm run format` first
+- Commit without running `yarn format` first
 
 ## Tech Stack
 
@@ -61,18 +61,18 @@ Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS v4 · Biome ·
 ## Key Patterns
 
 - **Theming**: `data-theme` attribute on `<html>`, persisted to localStorage
-- **Static export**: `output: 'export'` for GitHub Pages—no server features
+- **Static export**: `output: 'export'` for static hosting (Cloudflare Pages)—no server features
 - **Theme images**: Use `ThemePortrait` component for light/dark variants
 - **Blog posts**: Markdown files in `content/writing/` with frontmatter (title, date, description); slug derived from filename
 
 ## Testing
 
-Tests live in `__tests__/` directories adjacent to the code they test. Run `npm test` before committing.
+Tests live in `__tests__/` directories adjacent to the code they test. Run `yarn test` before committing.
 
 ```bash
-npm test                        # Run all tests
-npm test -- --watch             # Watch mode
-npm test -- ComponentName       # Run specific test
+yarn test                       # Run all tests
+yarn test --watch               # Watch mode
+yarn test ComponentName         # Run specific test
 ```
 
 ## Further Reading
