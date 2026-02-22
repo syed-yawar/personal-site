@@ -137,7 +137,9 @@
   border: none;
   border-radius: var(--radius-sm);
   text-decoration: none;
-  transition: all var(--duration-fast) var(--ease-out);
+  transition:
+    color var(--duration-fast) var(--ease-out),
+    background-color var(--duration-fast) var(--ease-out);
 }
 
 .resume-nav-link:hover {
