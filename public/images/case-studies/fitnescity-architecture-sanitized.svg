@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">Fitnescity architecture diagram (sanitized)</title>
+  <desc id="desc">A sanitized architecture diagram showing content, workflow, and data processing layers.</desc>
+  <defs>
+    <style>
+      .label { font: 600 24px 'Segoe UI', Arial, sans-serif; fill: #1f2937; }
+      .small { font: 500 18px 'Segoe UI', Arial, sans-serif; fill: #374151; }
+      .box { fill: #f8fafc; stroke: #94a3b8; stroke-width: 2; rx: 14; }
+      .box-accent { fill: #eff6ff; stroke: #3b82f6; stroke-width: 2.5; rx: 14; }
+      .arrow { stroke: #64748b; stroke-width: 2.5; fill: none; marker-end: url(#arrowhead); }
+      .lane-title { font: 700 20px 'Segoe UI', Arial, sans-serif; fill: #0f172a; }
+      .lane { fill: #ffffff; stroke: #cbd5e1; stroke-width: 1.5; rx: 16; }
+    </style>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#64748b" />
+    </marker>
+  </defs>
+
+  <rect x="20" y="20" width="1160" height="640" class="lane" />
+
+  <text x="70" y="75" class="lane-title">Presentation Layer</text>
+  <rect x="60" y="95" width="300" height="120" class="box-accent" />
+  <text x="210" y="145" text-anchor="middle" class="label">Public Site</text>
+  <text x="210" y="178" text-anchor="middle" class="small">Next.js + CMS Content</text>
+
+  <rect x="420" y="95" width="300" height="120" class="box" />
+  <text x="570" y="145" text-anchor="middle" class="label">Customer Portal</text>
+  <text x="570" y="178" text-anchor="middle" class="small">Scheduling + Results</text>
+
+  <rect x="780" y="95" width="300" height="120" class="box" />
+  <text x="930" y="145" text-anchor="middle" class="label">Admin Operations</text>
+  <text x="930" y="178" text-anchor="middle" class="small">Verification Workflows</text>
+
+  <text x="70" y="290" class="lane-title">Service Layer</text>
+  <rect x="180" y="310" width="360" height="130" class="box-accent" />
+  <text x="360" y="364" text-anchor="middle" class="label">Workflow Services</text>
+  <text x="360" y="398" text-anchor="middle" class="small">Node.js / NestJS APIs</text>
+
+  <rect x="660" y="310" width="360" height="130" class="box" />
+  <text x="840" y="364" text-anchor="middle" class="label">Messaging + Events</text>
+  <text x="840" y="398" text-anchor="middle" class="small">SQS and EventBridge</text>
+
+  <text x="70" y="515" class="lane-title">Data and Intake Layer</text>
+  <rect x="120" y="535" width="260" height="95" class="box" />
+  <text x="250" y="585" text-anchor="middle" class="label">Partner Files</text>
+
+  <rect x="460" y="535" width="260" height="95" class="box-accent" />
+  <text x="590" y="585" text-anchor="middle" class="label">S3 Intake</text>
+
+  <rect x="800" y="535" width="260" height="95" class="box" />
+  <text x="930" y="585" text-anchor="middle" class="label">Structured Records</text>
+
+  <path d="M360 155 L420 155" class="arrow" />
+  <path d="M720 155 L780 155" class="arrow" />
+  <path d="M570 215 L570 290" class="arrow" />
+  <path d="M840 215 L840 310" class="arrow" />
+  <path d="M360 440 L250 535" class="arrow" />
+  <path d="M540 585 L720 585" class="arrow" />
+  <path d="M660 440 L590 535" class="arrow" />
+  <path d="M840 440 L930 535" class="arrow" />
+</svg>

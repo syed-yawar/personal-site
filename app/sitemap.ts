@@ -1,65 +1,39 @@
 import { MetadataRoute } from 'next';
 
-import { getAllPosts } from '@/lib/posts';
-import { SITE_URL } from '@/lib/utils';
+import caseStudies from '@/data/case-studies';
 
 export const dynamic = 'force-static';
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const siteUrl = (
+    process.env.NEXT_PUBLIC_SITE_URL ?? 'https://syed-yawar.github.io/yawar-personal'
+  ).replace(/\/$/, '');
   const currentDate = new Date();
+  const staticRoutes = [
+    { path: '', changeFrequency: 'weekly' as const, priority: 1 },
+    { path: '/about', changeFrequency: 'monthly' as const, priority: 0.8 },
+    { path: '/resume', changeFrequency: 'monthly' as const, priority: 0.8 },
+    { path: '/contact', changeFrequency: 'monthly' as const, priority: 0.7 },
+    {
+      path: '/case-studies',
+      changeFrequency: 'weekly' as const,
+      priority: 0.9,
+    },
+  ];
 
-  // Generate entries for blog posts
-  const posts = getAllPosts();
-  const postEntries: MetadataRoute.Sitemap = posts.map((post) => ({
-    url: `${SITE_URL}/writing/${post.slug}`,
-    lastModified: new Date(post.date),
+  const staticEntries: MetadataRoute.Sitemap = staticRoutes.map((route) => ({
+    url: `${siteUrl}${route.path}`,
+    lastModified: currentDate,
+    changeFrequency: route.changeFrequency,
+    priority: route.priority,
+  }));
+
+  const caseStudyEntries: MetadataRoute.Sitemap = caseStudies.map((caseStudy) => ({
+    url: `${siteUrl}/case-studies/${caseStudy.id}`,
+    lastModified: new Date(caseStudy.timeline.end ?? caseStudy.timeline.start),
     changeFrequency: 'monthly',
     priority: 0.6,
   }));
 
-  return [
-    {
-      url: SITE_URL,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 1,
-    },
-    {
-      url: `${SITE_URL}/about`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${SITE_URL}/resume`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${SITE_URL}/projects`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${SITE_URL}/writing`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${SITE_URL}/stats`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.5,
-    },
-    {
-      url: `${SITE_URL}/contact`,
-      lastModified: currentDate,
-      changeFrequency: 'yearly',
-      priority: 0.5,
-    },
-    ...postEntries,
-  ];
+  return [...staticEntries, ...caseStudyEntries];
 }
