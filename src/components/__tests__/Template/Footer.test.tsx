@@ -14,8 +14,8 @@ describe('Footer', () => {
   it('displays the name and role', () => {
     render(<Footer />);
 
-    expect(screen.getByText("Michael D'Angelo")).toBeInTheDocument();
-    expect(screen.getByText('CTO & Co-founder')).toBeInTheDocument();
+    expect(screen.getByText('Syed Yawar Hussain')).toBeInTheDocument();
+    expect(screen.getByText('Principal Software Engineer')).toBeInTheDocument();
   });
 
   it('displays the current year in copyright', () => {
@@ -40,7 +40,7 @@ describe('Footer', () => {
     );
     expect(screen.getByRole('link', { name: /projects/i })).toHaveAttribute(
       'href',
-      '/projects',
+      '/case-studies',
     );
     expect(screen.getByRole('link', { name: /contact/i })).toHaveAttribute(
       'href',

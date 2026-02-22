@@ -3,6 +3,7 @@ interface ThemePortraitProps {
   height: number;
   priority?: boolean;
   className?: string;
+  objectPosition?: string;
 }
 
 /**
@@ -20,27 +21,30 @@ export default function ThemePortrait({
   height,
   priority = false,
   className = '',
+  objectPosition = 'center center',
 }: ThemePortraitProps) {
   return (
     <span className={`theme-portrait ${className}`}>
       {/* biome-ignore lint/performance/noImgElement: Using native img to avoid next/image runtime overhead for static export */}
       <img
-        src="/images/me-light.jpg"
-        alt="Michael D'Angelo"
+        src="/images/yawar-profile.jpeg"
+        alt="Syed Yawar Hussain"
         width={width}
         height={height}
         loading={priority ? 'eager' : 'lazy'}
         decoding="async"
+        style={{ objectPosition }}
         className="theme-portrait-light"
       />
       {/* biome-ignore lint/performance/noImgElement: Using native img to avoid next/image runtime overhead for static export */}
       <img
-        src="/images/me-dark.jpg"
-        alt="Michael D'Angelo"
+        src="/images/yawar-profile.jpeg"
+        alt="Syed Yawar Hussain"
         width={width}
         height={height}
         loading="lazy"
         decoding="async"
+        style={{ objectPosition }}
         className="theme-portrait-dark"
         aria-hidden="true"
       />

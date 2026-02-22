@@ -18,11 +18,19 @@ export default function Navigation() {
 
   return (
     <header className="site-header">
-      <Link href="/" className="site-logo">
-        <span className="logo-text">MD</span>
+      <Link href="/" className="site-logo" aria-label="Syed Yawar Hussain homepage">
+        <span className="logo-inner">
+          <span className="logo-mark" aria-hidden="true">
+            YH
+          </span>
+          <span className="logo-lockup">
+            <span className="logo-text">Syed Yawar</span>
+            <span className="logo-subtitle">Software Engineer</span>
+          </span>
+        </span>
       </Link>
 
-      <nav className="nav-links">
+      <nav className="nav-links" aria-label="Primary">
         {routes
           .filter((l) => !l.index)
           .map((l) => (

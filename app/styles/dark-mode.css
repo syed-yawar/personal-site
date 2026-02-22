@@ -6,60 +6,94 @@
 /* Manual dark mode toggle - token overrides */
 [data-theme='dark'] {
   /* Core colors */
-  --color-bg: #0a0a0a;
-  --color-bg-alt: #111111;
-  --color-bg-offset: #1a1a1a;
-  --color-fg: #e5e5e5;
-  --color-fg-bold: #ffffff;
-  --color-fg-light: #b0b0b5;
+  --color-bg: #0b1116;
+  --color-bg-alt: #111a20;
+  --color-bg-offset: #15242b;
+  --color-fg: #e6edf2;
+  --color-fg-bold: #f7fbfd;
+  --color-fg-light: #9aadb8;
   --color-white: #fff;
   --color-black: #000;
 
   /* Overlay colors for dark mode */
-  --color-overlay-light: rgba(255, 255, 255, 0.1);
-  --color-overlay-dark: rgba(0, 0, 0, 0.3);
-  --color-overlay-darker: rgba(0, 0, 0, 0.5);
+  --color-overlay-light: rgba(255, 255, 255, 0.12);
+  --color-overlay-dark: rgba(0, 0, 0, 0.34);
+  --color-overlay-darker: rgba(0, 0, 0, 0.56);
 
   /* Accent colors */
-  --color-accent: #60a5fa;
-  --color-accent-hover: #93c5fd;
-  --color-accent-light: color-mix(in srgb, var(--color-accent) 22%, transparent);
-  --color-accent-subtle: color-mix(in srgb, var(--color-accent) 15%, transparent);
-  --color-accent-border: color-mix(in srgb, var(--color-accent) 50%, transparent);
-  --color-accent-underline: color-mix(in srgb, var(--color-accent) 40%, transparent);
+  --color-accent: #66b9c6;
+  --color-accent-secondary: #83cdd9;
+  --color-accent-hover: #8ed8e4;
+  --color-accent-light: color-mix(in srgb, var(--color-accent) 22%, var(--color-bg-alt));
+  --color-accent-subtle: color-mix(in srgb, var(--color-accent) 14%, var(--color-bg-alt));
+  --color-accent-muted: color-mix(in srgb, var(--color-accent) 10%, transparent);
+  --color-accent-border: color-mix(in srgb, var(--color-accent) 58%, transparent);
+  --color-accent-underline: color-mix(in srgb, var(--color-accent) 46%, transparent);
+  --color-accent-underline-strong: color-mix(in srgb, var(--color-accent) 62%, transparent);
 
   /* Borders */
-  --color-border: rgba(255, 255, 255, 0.12);
-  --color-border-bg: rgba(255, 255, 255, 0.08);
-  --color-border-alt: rgba(255, 255, 255, 0.18);
+  --color-border: rgba(214, 232, 239, 0.18);
+  --color-border-bg: rgba(214, 232, 239, 0.1);
+  --color-border-alt: rgba(214, 232, 239, 0.28);
 
-  /* Semantic surface tokens (eliminates hardcoded rgba in component overrides) */
-  --color-surface-subtle: rgba(255, 255, 255, 0.04);
-  --color-surface-hover: rgba(255, 255, 255, 0.08);
-  --color-surface-active: rgba(255, 255, 255, 0.12);
-  --color-text-muted: rgba(255, 255, 255, 0.6);
-  --color-text-dim: rgba(255, 255, 255, 0.7);
-  --color-fg-muted: rgba(255, 255, 255, 0.5);
+  /* Semantic surfaces */
+  --color-surface-subtle: rgba(214, 232, 239, 0.05);
+  --color-surface-hover: rgba(214, 232, 239, 0.09);
+  --color-surface-active: rgba(214, 232, 239, 0.14);
+  --color-surface-raised: color-mix(in srgb, var(--color-bg-alt) 86%, var(--color-bg-offset));
+  --color-surface-panel: color-mix(in srgb, var(--color-bg-alt) 72%, var(--color-bg-offset));
+  --color-text-muted: rgba(230, 237, 242, 0.64);
+  --color-text-dim: rgba(230, 237, 242, 0.76);
+  --color-fg-muted: rgba(230, 237, 242, 0.54);
+
+  /* Header surface tokens */
+  --color-header-bg: color-mix(in srgb, var(--color-bg-alt) 88%, transparent);
+  --color-header-border: rgba(214, 232, 239, 0.2);
+  --color-header-highlight: color-mix(in srgb, var(--color-accent) 46%, transparent);
 
   /* Shadows */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05);
-  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.08);
-  --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.5);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.28);
+  --shadow-md: 0 10px 28px rgba(0, 0, 0, 0.34), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  --shadow-lg: 0 16px 42px rgba(0, 0, 0, 0.42), 0 0 0 1px rgba(255, 255, 255, 0.07);
+  --shadow-xl: 0 26px 62px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1);
 }
 
 /* Dark mode component overrides using semantic tokens */
 [data-theme='dark'] .site-header {
-  background-color: color-mix(in srgb, var(--color-bg-alt) 90%, transparent);
-  border-bottom-color: var(--color-border);
+  background-color: var(--color-header-bg);
+  border-bottom-color: var(--color-header-border);
+}
+
+[data-theme='dark'] .nav-links {
+  background: var(--color-surface-subtle);
+  border-color: var(--color-header-border);
 }
 
 [data-theme='dark'] .nav-link:hover {
-  background-color: var(--color-surface-active);
+  background-color: var(--color-accent-muted);
+  border-color: var(--color-accent-border);
+  color: var(--color-accent-hover);
 }
 
 [data-theme='dark'] .nav-link.active {
-  background-color: var(--color-accent-hover);
+  background-color: var(--color-accent-light);
+  color: var(--color-accent-hover);
+}
+
+[data-theme='dark'] .theme-toggle,
+[data-theme='dark'] .hamburger-button {
+  background: var(--color-surface-subtle);
+  border-color: var(--color-header-border);
+}
+
+[data-theme='dark'] .theme-toggle:hover,
+[data-theme='dark'] .hamburger-button:hover {
+  background: var(--color-surface-hover);
+}
+
+[data-theme='dark'] .slide-menu {
+  background: linear-gradient(180deg, var(--color-bg-alt), var(--color-bg));
+  border-left-color: var(--color-header-border);
 }
 
 [data-theme='dark'] .site-footer-new {
@@ -72,20 +106,20 @@
 
 /* Homepage sections */
 [data-theme='dark'] .hero-chip {
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--color-surface-subtle);
 }
 
 [data-theme='dark'] .home-section {
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 0%, transparent 100%);
+  background: linear-gradient(to bottom, var(--color-surface-subtle) 0%, transparent 100%);
 }
 
 [data-theme='dark'] .work-card {
-  background: var(--color-bg-alt);
+  background: var(--color-surface-raised);
   border-color: var(--color-border);
 }
 
 [data-theme='dark'] .work-card:hover {
-  border-color: var(--color-accent);
+  border-color: var(--color-accent-border);
   box-shadow: var(--shadow-lg);
 }
 
@@ -97,8 +131,6 @@
 [data-theme='dark'] .theme-portrait-dark {
   display: block;
 }
-
-/* Resume nav - dark mode uses same styles, just inherits dark tokens */
 
 /* Job cards in dark mode */
 [data-theme='dark'] .jobs-container {

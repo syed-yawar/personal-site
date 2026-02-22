@@ -6,7 +6,7 @@ import PageWrapper from '@/components/Template/PageWrapper';
 
 export const metadata: Metadata = {
   description:
-    'Co-founder & CTO at Promptfoo building LLM security tools. Previously VP Engineering at Smile ID. YC alum, Stanford ICME.',
+    'Portfolio of Syed Yawar Hussain, Principal Software Engineer focused on architecture, product delivery, and high-trust web platforms.',
 };
 
 export default function HomePage() {

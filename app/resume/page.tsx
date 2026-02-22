@@ -15,7 +15,7 @@ import work from '@/data/resume/work';
 export const metadata: Metadata = {
   title: 'Resume',
   description:
-    "Michael D'Angelo's Resume. Promptfoo, Smile ID, Arthena, Matroid, Stanford ICME, YC alum.",
+    "Syed Yawar Hussain's Resume. Principal Software Engineer focused on architecture ownership, team leadership, and high-impact product delivery.",
 };
 
 export default function ResumePage() {
@@ -25,10 +25,10 @@ export default function ResumePage() {
         <header className="resume-header">
           <h1 className="resume-title">Resume</h1>
           <p className="resume-summary">
-            Engineering leader with 10+ years building products at the
-            intersection of machine learning and security. Currently CTO &
-            Co-founder at Promptfoo, building open-source LLM security tools.
-            Stanford MS, YC alum, previously VP Engineering.
+            Engineering leader with 8+ years delivering production web platforms across healthcare,
+            marketplace, and AI-assisted workflows. Currently Principal Software Engineer at
+            Arbisoft, focused on architecture ownership, cross-functional execution, and sustainable
+            product velocity.
           </p>
         </header>
 

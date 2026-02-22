@@ -31,19 +31,17 @@ describe('Navigation', () => {
 
   it('renders the logo link to home', () => {
     render(<Navigation />);
-    const logo = screen.getByRole('link', { name: /md/i });
+    const logo = screen.getByRole('link', { name: /yawar/i });
     expect(logo).toHaveAttribute('href', '/');
   });
 
   it('renders navigation links for all non-index routes', () => {
     render(<Navigation />);
 
-    // Should have links for About, Resume, Writing, Stats, Contact, Archive
+    // Should have links for About, Case Studies, Resume, and Contact
     expect(screen.getByRole('link', { name: /about/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /case studies/i })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /resume/i })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /archive/i })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /writing/i })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /stats/i })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /contact/i })).toBeInTheDocument();
   });
 

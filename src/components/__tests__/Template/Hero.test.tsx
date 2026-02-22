@@ -15,25 +15,23 @@ describe('Hero', () => {
     render(<Hero />);
 
     const heading = screen.getByRole('heading', { level: 1 });
-    expect(heading).toHaveTextContent("Michael D'Angelo");
+    expect(heading).toHaveTextContent('Syed Yawar Hussain');
   });
 
-  it('renders the tagline with Promptfoo link', () => {
+  it('renders the tagline with Arbisoft link', () => {
     render(<Hero />);
 
-    const promptfooLink = screen.getByRole('link', { name: /promptfoo/i });
-    expect(promptfooLink).toHaveAttribute('href', 'https://promptfoo.dev');
-    expect(promptfooLink).toHaveClass('hero-highlight');
+    const arbisoftLink = screen.getByRole('link', { name: /arbisoft/i });
+    expect(arbisoftLink).toHaveAttribute('href', 'https://arbisoft.com');
+    expect(arbisoftLink).toHaveClass('hero-highlight');
   });
 
   it('displays hero chips for credentials', () => {
     render(<Hero />);
 
-    expect(screen.getByText('YC Alum')).toBeInTheDocument();
-    expect(screen.getByText('Stanford ICME')).toBeInTheDocument();
-    expect(
-      screen.getByText('Co-founded Arthena & Matroid'),
-    ).toBeInTheDocument();
+    expect(screen.getByText('Next.js & Node.js Architecture')).toBeInTheDocument();
+    expect(screen.getByText('Engineering Leadership')).toBeInTheDocument();
+    expect(screen.getByText('Cross-Functional Delivery')).toBeInTheDocument();
   });
 
   it('renders CTA buttons with correct links', () => {

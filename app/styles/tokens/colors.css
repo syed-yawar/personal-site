@@ -7,26 +7,26 @@
   /* ===================
      CORE PALETTE
      =================== */
-  --color-bg: #ffffff;
-  --color-bg-alt: #f5f5f7;
-  --color-bg-offset: #f0f0f2;
-  --color-fg: #1d1d1f;
-  --color-fg-bold: #1d1d1f;
-  --color-fg-light: #58585d;
+  --color-bg: #f7f9f8;
+  --color-bg-alt: #ffffff;
+  --color-bg-offset: #e8f4f6;
+  --color-fg: #0f1720;
+  --color-fg-bold: #0f1720;
+  --color-fg-light: #4b5563;
 
   /* ===================
      ACCENT COLORS
      =================== */
-  --color-accent: #2e59ba;
-  --color-accent-secondary: #60a5fa;
-  --color-accent-hover: #2e59ba;
-  --color-accent-light: color-mix(in srgb, var(--color-accent) 12%, transparent);
-  --color-accent-subtle: color-mix(in srgb, var(--color-accent) 5%, transparent);
-  --color-accent-muted: color-mix(in srgb, var(--color-accent) 3%, transparent);
-  --color-accent-underline: color-mix(in srgb, var(--color-accent) 30%, transparent);
-  --color-accent-underline-strong: color-mix(in srgb, var(--color-accent) 40%, transparent);
-  --color-accent-glow: color-mix(in srgb, var(--color-accent) 15%, transparent);
-  --color-accent-border: color-mix(in srgb, var(--color-accent) 50%, transparent);
+  --color-accent: #1f7a8c;
+  --color-accent-secondary: #195f6d;
+  --color-accent-hover: #175f6f;
+  --color-accent-light: color-mix(in srgb, var(--color-accent) 18%, var(--color-bg-alt));
+  --color-accent-subtle: color-mix(in srgb, var(--color-accent) 10%, var(--color-bg-alt));
+  --color-accent-muted: color-mix(in srgb, var(--color-accent) 6%, transparent);
+  --color-accent-underline: color-mix(in srgb, var(--color-accent) 36%, transparent);
+  --color-accent-underline-strong: color-mix(in srgb, var(--color-accent) 52%, transparent);
+  --color-accent-glow: color-mix(in srgb, var(--color-accent) 22%, transparent);
+  --color-accent-border: color-mix(in srgb, var(--color-accent) 40%, transparent);
 
   /* ===================
      SKILL CATEGORY COLORS
@@ -41,19 +41,24 @@
   /* ===================
      BORDER COLORS
      =================== */
-  --color-border: rgba(0, 0, 0, 0.1);
-  --color-border-bg: rgba(0, 0, 0, 0.06);
-  --color-border-alt: rgba(0, 0, 0, 0.15);
+  --color-border: rgba(15, 23, 32, 0.12);
+  --color-border-bg: rgba(15, 23, 32, 0.06);
+  --color-border-alt: rgba(15, 23, 32, 0.2);
 
   /* ===================
      SURFACE TOKENS
      =================== */
-  --color-surface-subtle: rgba(0, 0, 0, 0.03);
-  --color-surface-hover: rgba(0, 0, 0, 0.06);
-  --color-surface-active: rgba(0, 0, 0, 0.1);
-  --color-text-muted: rgba(0, 0, 0, 0.5);
-  --color-text-dim: rgba(0, 0, 0, 0.6);
-  --color-fg-muted: rgba(0, 0, 0, 0.5);
+  --color-surface-subtle: color-mix(in srgb, var(--color-fg) 3.5%, var(--color-bg));
+  --color-surface-hover: color-mix(in srgb, var(--color-fg) 7%, var(--color-bg));
+  --color-surface-active: color-mix(in srgb, var(--color-fg) 11%, var(--color-bg));
+  --color-surface-raised: color-mix(in srgb, var(--color-bg-alt) 90%, var(--color-bg-offset));
+  --color-surface-panel: color-mix(in srgb, var(--color-bg-alt) 85%, var(--color-bg-offset));
+  --color-text-muted: rgba(15, 23, 32, 0.55);
+  --color-text-dim: rgba(15, 23, 32, 0.68);
+  --color-fg-muted: rgba(15, 23, 32, 0.52);
+  --color-header-bg: color-mix(in srgb, var(--color-bg-alt) 82%, transparent);
+  --color-header-border: color-mix(in srgb, var(--color-fg) 14%, transparent);
+  --color-header-highlight: color-mix(in srgb, var(--color-accent) 34%, transparent);
 
   /* ===================
      SEMANTIC COLORS

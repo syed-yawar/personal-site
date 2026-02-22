@@ -19,7 +19,7 @@
 
   a:hover {
     color: var(--color-accent);
-    background-size: 100% 1.5px;
+    /* background-size: 100% 1.5px; */
   }
 
   /* Keep simple underline for inline content links

@@ -13,12 +13,12 @@ export default function Footer() {
             <ThemePortrait width={80} height={80} />
           </Link>
           <div className="footer-info">
-            <h3>Michael D&apos;Angelo</h3>
-            <p className="footer-role">CTO & Co-founder</p>
+            <h3>Syed Yawar Hussain</h3>
+            <p className="footer-role">Principal Software Engineer</p>
             <p className="footer-copyright">
               &copy; {new Date().getFullYear()} ·{' '}
               <a
-                href="https://github.com/mldangelo/personal-site"
+                href="https://github.com/syed-yawar/yawar-personal"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -36,15 +36,12 @@ export default function Footer() {
             <div className="footer-links-grid">
               <Link href="/about">About</Link>
               <Link href="/resume">Resume</Link>
-              <Link href="/projects">Projects</Link>
+              <Link href="/case-studies">Projects</Link>
               <Link href="/contact">Contact</Link>
             </div>
           </nav>
 
-          <div
-            className="footer-social"
-            aria-labelledby="footer-social-heading"
-          >
+          <div className="footer-social" aria-labelledby="footer-social-heading">
             <h4 id="footer-social-heading" className="footer-social-label">
               Connect
             </h4>

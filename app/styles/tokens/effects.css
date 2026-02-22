@@ -7,18 +7,24 @@
   /* ===================
      SHADOWS
      =================== */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
-  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.12);
-  --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.15);
+  --shadow-sm: 0 1px 2px color-mix(in srgb, var(--color-fg) 8%, transparent);
+  --shadow-md:
+    0 8px 24px color-mix(in srgb, var(--color-fg) 12%, transparent),
+    0 0 0 1px color-mix(in srgb, var(--color-fg) 4%, transparent);
+  --shadow-lg:
+    0 14px 38px color-mix(in srgb, var(--color-fg) 14%, transparent),
+    0 0 0 1px color-mix(in srgb, var(--color-fg) 6%, transparent);
+  --shadow-xl:
+    0 24px 60px color-mix(in srgb, var(--color-fg) 16%, transparent),
+    0 0 0 1px color-mix(in srgb, var(--color-fg) 8%, transparent);
 
   /* ===================
      BORDER RADIUS
      =================== */
   --radius-xs: 4px;
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 24px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
   --radius-full: 999px;
 }
