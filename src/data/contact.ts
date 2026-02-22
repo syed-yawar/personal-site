@@ -24,14 +24,14 @@ const data: ContactItem[] = [
   },
   {
     label: 'Email',
-    link: 'mailto:yawar.hussain@arbisoft.com',
+    link: 'mailto:syedyawar2@gmail.com',
     kind: 'email',
     isPrimary: true,
     icon: faEnvelope,
   },
   {
     label: 'Phone (available on request)',
-    link: 'mailto:yawar.hussain@arbisoft.com?subject=Phone%20Call%20Request',
+    link: 'mailto:syedyawar2@gmail.com?subject=Phone%20Call%20Request',
     kind: 'phone',
     isPlaceholder: true,
     icon: faEnvelope,
