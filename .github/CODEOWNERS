@@ -1,0 +1,5 @@
+# Require syed-yawar review for all pull requests to protected branches.
+* @syed-yawar
+
+# Explicitly keep workflow ownership visible.
+.github/workflows/ @syed-yawar
