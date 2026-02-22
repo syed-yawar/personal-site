@@ -27,6 +27,7 @@
     letter-spacing: var(--tracking-tight);
     line-height: var(--leading-tight);
     margin: 0 0 0.75em 0;
+    text-wrap: balance;
   }
 
   h1 a,
@@ -74,6 +75,7 @@
 
   p {
     margin: 0 0 var(--spacing-element) 0;
+    text-wrap: pretty;
   }
 
   code {

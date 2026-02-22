@@ -216,7 +216,11 @@ body.is-menu-visible .site-wrapper {
   height: 1.75px;
   left: 0;
   position: absolute;
-  transition: all var(--duration-normal) var(--ease-menu);
+  transition:
+    transform var(--duration-normal) var(--ease-menu),
+    opacity var(--duration-normal) var(--ease-menu),
+    top var(--duration-normal) var(--ease-menu),
+    bottom var(--duration-normal) var(--ease-menu);
   width: 100%;
 }
 

@@ -29,7 +29,7 @@ describe('EmailLink', () => {
   it('renders the email domain', () => {
     render(<EmailLink />);
 
-    expect(screen.getByText('@arbisoft.com')).toBeInTheDocument();
+    expect(screen.getByText('@gmail.com')).toBeInTheDocument();
   });
 
   it('renders as a link element', () => {
@@ -49,7 +49,7 @@ describe('EmailLink', () => {
 
     // Initial state shows local-part as default (accessibility: never show empty)
     const prefix = document.querySelector('.contact-email-prefix');
-    expect(prefix?.textContent).toBe('yawar.hussain');
+    expect(prefix?.textContent).toBe('syedyawar2');
 
     // Advance through message ticks to verify animation works
     act(() => {
@@ -126,7 +126,7 @@ describe('EmailLink', () => {
     });
 
     const link = screen.getByRole('link');
-    expect(link.getAttribute('href')).toBe('mailto:yawar.hussain@arbisoft.com');
+    expect(link.getAttribute('href')).toBe('mailto:syedyawar2@gmail.com');
   });
 
   it('has invalid class when email prefix is invalid', async () => {

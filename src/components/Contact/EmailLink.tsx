@@ -1,13 +1,13 @@
 'use client';
 
-import { useEffect, useReducer, useRef, useState } from 'react';
 import contact from '@/data/contact';
+import { useEffect, useReducer, useRef, useState } from 'react';
 
 // Animation timing constants
 const ANIMATION_TICK_MS = 50; // Tick length in milliseconds
 const HOLD_TICKS_AFTER_MESSAGE = 50; // Ticks to wait after message completes
 
-const FALLBACK_EMAIL = 'yawar.hussain@arbisoft.com';
+const FALLBACK_EMAIL = 'syedyawar2@gmail.com';
 
 function parseMailtoAddress(link: string | undefined): string | null {
   if (!link?.startsWith('mailto:')) return null;

@@ -58,7 +58,7 @@ yarn test     # Run tests
 
 This repository includes `.github/workflows/deploy-cloudflare.yml` for direct static deployment to Cloudflare Pages.
 
-- Triggers: push to `main` and manual `workflow_dispatch`
+- Triggers: push to `main` only
 - Build output: Next.js static export in `out/`
 - Deploy step: `wrangler pages deploy out`
 
@@ -74,6 +74,13 @@ Recommended Cloudflare token scope: **Account → Cloudflare Pages:Edit** (least
 ### Visibility note for public repos
 
 In a public GitHub repository, workflow files and run logs are generally visible to others. Secrets are encrypted and masked, but pipeline definitions and non-secret logs are not private.
+
+### Public repo security defaults
+
+- Deploys are triggered only by pushes to `main`.
+- Manual deploy trigger (`workflow_dispatch`) is disabled.
+- Production deploys should be protected with required reviewer(s) on the `production` environment.
+- Logs are public in a public repo; secrets remain encrypted and masked.
 
 If you need private deployment execution, use one of these patterns:
 
