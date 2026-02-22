@@ -4,18 +4,13 @@ import ThemePortrait from './ThemePortrait';
 
 export default function Hero() {
   return (
-    <section
-      // className="hero"
-      aria-labelledby="hero-heading"
-    >
+    <section aria-labelledby="hero-heading">
       <div className="hero-bg" aria-hidden="true">
         <div className="hero-gradient" />
         <div className="hero-grid" />
       </div>
 
       <div className="hero-content">
-        {/* <p className="hero-eyebrow">Software Engineering Leadership</p> */}
-
         <div className="hero-panel">
           <aside className="hero-aside">
             <div className="hero-avatar">
@@ -29,9 +24,6 @@ export default function Hero() {
           <div className="hero-copy">
             <h1 className="hero-title" id="hero-heading">
               <span className="hero-kicker">Syed Yawar Hussain</span>
-              {/* <span className="hero-name">
-                Building reliable web platforms with product-focused execution.
-              </span> */}
             </h1>
 
             <p className="hero-tagline">
