@@ -81,11 +81,11 @@ Then remove the "Writing" link from `src/data/routes.ts`.
 
 ### Step 7: Final Cleanup
 
-Search the codebase for "Michael" or "mldangelo" to find any remaining references to change.
+Search the codebase for your previous template identity strings to find any remaining references to change.
 
 ```bash
 grep -r "Michael" src/
-grep -r "mldangelo" .
+grep -r "template-owner" .
 ```
 
 ## Deployment
@@ -152,7 +152,7 @@ Edit `app/tailwind.css`. Find `:root` (light mode) and `[data-theme="dark"]` (da
 
 ## Getting Help
 
-- Open an issue: https://github.com/mldangelo/personal-site/issues
-- Email: help@mldangelo.com
+- Open an issue in your own fork/repository
+- Add your preferred support contact in this section
 
 If you find bugs or unclear instructions, please submit a PR—contributions help everyone.
