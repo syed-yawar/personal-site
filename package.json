@@ -1,15 +1,15 @@
 {
   "name": "personal-site",
   "version": "4.1.0",
-  "homepage": "https://syed-yawar.github.io/yawar-personal/",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/syed-yawar/yawar-personal.git"
+    "url": "https://github.com/syed-yawar/personal-site.git"
   },
   "engines": {
     "node": ">=20.x"
   },
+  "packageManager": "yarn@1.22.22",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
@@ -22,8 +22,8 @@
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "test:ui": "vitest --ui",
-    "predeploy": "npm run build",
-    "analyze": "ANALYZE=true npm run build"
+    "predeploy": "yarn build",
+    "analyze": "ANALYZE=true yarn build"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^7.1.0",

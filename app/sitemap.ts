@@ -5,9 +5,7 @@ import caseStudies from '@/data/case-studies';
 export const dynamic = 'force-static';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const siteUrl = (
-    process.env.NEXT_PUBLIC_SITE_URL ?? 'https://syed-yawar.github.io/yawar-personal'
-  ).replace(/\/$/, '');
+  const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://syedyawar.com').replace(/\/$/, '');
   const currentDate = new Date();
   const staticRoutes = [
     { path: '', changeFrequency: 'weekly' as const, priority: 1 },

@@ -25,9 +25,7 @@ const raleway = Raleway({
   adjustFontFallback: true,
 });
 
-const SITE_URL = (
-  process.env.NEXT_PUBLIC_SITE_URL ?? 'https://syed-yawar.github.io/yawar-personal'
-).replace(/\/$/, '');
+const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://syedyawar.com').replace(/\/$/, '');
 const PROFILE_NAME = 'Syed Yawar Hussain';
 const SITE_TITLE = `${PROFILE_NAME} | Portfolio`;
 const siteDescription =
@@ -37,6 +35,11 @@ export const metadata: Metadata = {
   title: {
     default: SITE_TITLE,
     template: `%s | ${PROFILE_NAME}`,
+  },
+  icons: {
+    icon: [{ url: '/images/yh.ico' }],
+    shortcut: ['/images/yh.ico'],
+    apple: [{ url: '/images/yh.ico' }],
   },
   description: siteDescription,
   keywords: [

@@ -66,7 +66,7 @@ describe('Site', () => {
     await Site();
 
     expect(global.fetch).toHaveBeenCalledWith(
-      'https://api.github.com/repos/syed-yawar/yawar-personal',
+      'https://api.github.com/repos/syed-yawar/personal-site',
       expect.objectContaining({
         headers: expect.objectContaining({
           Accept: 'application/vnd.github.v3+json',
@@ -80,7 +80,7 @@ describe('Site', () => {
     render(Component);
 
     const links = document.querySelectorAll(
-      'a[href="https://github.com/syed-yawar/yawar-personal/stargazers"]',
+      'a[href="https://github.com/syed-yawar/personal-site/stargazers"]',
     );
     expect(links.length).toBeGreaterThan(0);
   });

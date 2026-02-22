@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: /api
 
-Sitemap: https://syed-yawar.github.io/yawar-personal/sitemap.xml
+Sitemap: https://syedyawar.com/sitemap.xml

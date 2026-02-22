@@ -3,7 +3,7 @@
  */
 
 // Site configuration
-const DEFAULT_SITE_URL = 'https://syed-yawar.github.io/yawar-personal';
+const DEFAULT_SITE_URL = 'https://syedyawar.com';
 
 export const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL ?? DEFAULT_SITE_URL
