@@ -1,15 +1,31 @@
 'use client';
 
 import { useEffect, useReducer, useRef, useState } from 'react';
+import contact from '@/data/contact';
 
 // Animation timing constants
 const ANIMATION_TICK_MS = 50; // Tick length in milliseconds
 const HOLD_TICKS_AFTER_MESSAGE = 50; // Ticks to wait after message completes
 
-// Validates the first half of an email address per RFC 5322
-function validateText(text: string): boolean {
-  const re = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))$/;
-  return re.test(text) || text.length === 0;
+const FALLBACK_EMAIL = 'yawar.hussain@arbisoft.com';
+
+function parseMailtoAddress(link: string | undefined): string | null {
+  if (!link?.startsWith('mailto:')) return null;
+  return link.replace('mailto:', '').split('?')[0] || null;
+}
+
+function getConfiguredEmailAddress(): string {
+  const configuredLink =
+    contact.find((item) => item.kind === 'email')?.link ??
+    contact.find((item) => item.link.startsWith('mailto:'))?.link;
+
+  const parsedAddress = parseMailtoAddress(configuredLink);
+  if (!parsedAddress) return FALLBACK_EMAIL;
+
+  const [localPart, domain] = parsedAddress.split('@');
+  if (!localPart || !domain) return FALLBACK_EMAIL;
+
+  return `${localPart}@${domain}`;
 }
 
 function prefersReducedMotion(): boolean {
@@ -17,23 +33,10 @@ function prefersReducedMotion(): boolean {
   return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 }
 
-const messages = [
-  'hi',
-  'hello',
-  'hola',
-  'you-can-email-me-at-literally-anything! Really',
-  'well, not anything. But most things',
-  'like-this',
-  'or-this',
-  'but not this :(  ',
-  'you.can.also.email.me.with.specific.topics.like',
-  'just-saying-hi',
-  'please-work-for-us',
-  'help',
-  'admin',
-  'or-I-really-like-your-website',
-  'thanks',
-];
+const CONFIGURED_EMAIL = getConfiguredEmailAddress();
+const [CONFIGURED_EMAIL_LOCAL_PART, CONFIGURED_EMAIL_DOMAIN] =
+  CONFIGURED_EMAIL.split('@');
+const messages = [CONFIGURED_EMAIL_LOCAL_PART];
 
 function useInterval(callback: () => void, delay: number | null) {
   const savedCallback = useRef<() => void>(callback);
@@ -143,10 +146,11 @@ export default function EmailLink({ loopMessage = false }: EmailLinkProps) {
     state.isActive && !reducedMotion ? ANIMATION_TICK_MS : null,
   );
 
-  // Use 'hi' as default message when reduced motion or paused with empty message
+  // Use configured local-part as the default static message.
   const displayMessage =
-    reducedMotion || state.message === '' ? 'hi' : state.message;
-  const isValid = validateText(displayMessage);
+    reducedMotion || state.message === ''
+      ? CONFIGURED_EMAIL_LOCAL_PART
+      : state.message;
 
   const handlePause = () => dispatch({ type: 'PAUSE' });
   const handleResume = () => {
@@ -155,22 +159,10 @@ export default function EmailLink({ loopMessage = false }: EmailLinkProps) {
     }
   };
 
-  const handleClick = (e: React.MouseEvent) => {
-    if (!isValid) {
-      e.preventDefault();
-    }
-  };
-
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (!isValid && (e.key === 'Enter' || e.key === ' ')) {
-      e.preventDefault();
-    }
-  };
-
   const emailContent = (
     <>
       <span className="contact-email-prefix">{displayMessage}</span>
-      <span className="contact-email-domain">@mldangelo.com</span>
+      <span className="contact-email-domain">@{CONFIGURED_EMAIL_DOMAIN}</span>
     </>
   );
 
@@ -180,26 +172,14 @@ export default function EmailLink({ loopMessage = false }: EmailLinkProps) {
       onMouseEnter={handlePause}
       onMouseLeave={handleResume}
     >
-      {isValid ? (
-        <a
-          href={`mailto:${displayMessage}@mldangelo.com`}
-          className="contact-email-link"
-          onClick={handleClick}
-          onKeyDown={handleKeyDown}
-          onFocus={handlePause}
-          onBlur={handleResume}
-        >
-          {emailContent}
-        </a>
-      ) : (
-        <span
-          className="contact-email-link contact-email-link--invalid"
-          aria-disabled="true"
-          tabIndex={-1}
-        >
-          {emailContent}
-        </span>
-      )}
+      <a
+        href={`mailto:${CONFIGURED_EMAIL}`}
+        className="contact-email-link"
+        onFocus={handlePause}
+        onBlur={handleResume}
+      >
+        {emailContent}
+      </a>
     </div>
   );
 }

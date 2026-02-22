@@ -5,14 +5,16 @@ import { AUTHOR_NAME, SITE_URL } from '@/lib/utils';
 import JsonLd from './JsonLd';
 
 export default function PersonSchema() {
-  // Extract social links for sameAs (excluding email)
+  // Extract social links for sameAs from configured contact data.
   const socialLinks = contact
-    .filter((item) => !item.link.startsWith('mailto:'))
-    .map((item) => item.link);
+    .map((item) => item.link)
+    .filter(
+      (link) => link.startsWith('https://') || link.startsWith('http://'),
+    );
 
-  // Extract email from contact data
-  const emailItem = contact.find((item) => item.link.startsWith('mailto:'));
-  const email = emailItem?.link.replace('mailto:', '');
+  // Extract primary email from contact data.
+  const emailItem = contact.find((item) => item.kind === 'email');
+  const email = emailItem?.link.replace('mailto:', '').split('?')[0];
 
   // Current job from work.ts (first entry)
   const currentJob = work[0];

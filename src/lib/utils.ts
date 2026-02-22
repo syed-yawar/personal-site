@@ -3,9 +3,13 @@
  */
 
 // Site configuration
-export const SITE_URL = 'https://mldangelo.com';
-export const AUTHOR_NAME = "Michael D'Angelo";
-export const TWITTER_HANDLE = '@dangelosaurus';
+const DEFAULT_SITE_URL = 'https://syed-yawar.github.io/yawar-personal';
+
+export const SITE_URL = (
+  process.env.NEXT_PUBLIC_SITE_URL ?? DEFAULT_SITE_URL
+).replace(/\/$/, '');
+export const AUTHOR_NAME = 'Syed Yawar Hussain';
+export const TWITTER_HANDLE = '';
 
 // Image dimension constants
 export const AVATAR_SIZE = {

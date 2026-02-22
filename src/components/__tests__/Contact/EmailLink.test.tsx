@@ -29,7 +29,7 @@ describe('EmailLink', () => {
   it('renders the email domain', () => {
     render(<EmailLink />);
 
-    expect(screen.getByText('@mldangelo.com')).toBeInTheDocument();
+    expect(screen.getByText('@arbisoft.com')).toBeInTheDocument();
   });
 
   it('renders as a link element', () => {
@@ -47,18 +47,16 @@ describe('EmailLink', () => {
       await Promise.resolve();
     });
 
-    // Initial state shows 'hi' as default (accessibility: never show empty)
+    // Initial state shows local-part as default (accessibility: never show empty)
     const prefix = document.querySelector('.contact-email-prefix');
-    expect(prefix?.textContent).toBe('hi');
+    expect(prefix?.textContent).toBe('yawar.hussain');
 
-    // Advance through multiple messages to verify animation works
-    // Each message takes ~50 chars + 50 hold ticks at 50ms each
+    // Advance through message ticks to verify animation works
     act(() => {
       vi.advanceTimersByTime(10000); // Advance 10 seconds
     });
 
-    // Animation should have progressed beyond 'hi'
-    // The component continues to animate through messages
+    // Component should continue rendering while animation state advances
     expect(prefix).toBeInTheDocument();
   });
 
@@ -122,22 +120,21 @@ describe('EmailLink', () => {
   it('generates valid mailto href for valid email prefixes', () => {
     render(<EmailLink />);
 
-    // Advance time to get a valid email prefix
+    // Advance time to ensure reducer tick progression
     act(() => {
-      vi.advanceTimersByTime(150); // Type out 'hi'
+      vi.advanceTimersByTime(150);
     });
 
     const link = screen.getByRole('link');
-    expect(link.getAttribute('href')).toBe('mailto:hi@mldangelo.com');
+    expect(link.getAttribute('href')).toBe('mailto:yawar.hussain@arbisoft.com');
   });
 
   it('has invalid class when email prefix is invalid', async () => {
     render(<EmailLink />);
 
-    // Run through messages until we hit an invalid one
-    // "but not this :(  " contains invalid characters
+    // Run through animation ticks; component should remain stable.
     act(() => {
-      vi.advanceTimersByTime(50 * 200); // Advance through several messages
+      vi.advanceTimersByTime(50 * 200);
     });
 
     // Check if link has container (component should still render)

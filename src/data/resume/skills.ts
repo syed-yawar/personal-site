@@ -1,148 +1,94 @@
-export interface Skill {
-  title: string;
-  competency: number;
-  category: string[];
-}
+import type {
+  ResumeSection,
+  SkillCategory,
+  SkillItem,
+} from '@/types/content';
 
-export interface Category {
-  name: string;
-  color: string;
-  /** Pre-computed text color for contrast - 'dark' for light backgrounds, 'light' for dark */
-  textColor: 'dark' | 'light';
-}
+export type Skill = SkillItem;
+export type Category = SkillCategory;
 
 const skills: Skill[] = [
-  // Languages
-  {
-    title: 'Python',
-    competency: 5,
-    category: ['Languages', 'ML Engineering'],
-  },
   {
     title: 'TypeScript',
     competency: 5,
-    category: ['Languages', 'Web Development'],
+    category: ['Frontend Engineering', 'Architecture & Delivery'],
   },
   {
-    title: 'SQL',
-    competency: 4,
-    category: ['Languages', 'Databases'],
-  },
-  // AI & LLM
-  {
-    title: 'AI Agents',
+    title: 'React',
     competency: 5,
-    category: ['ML Engineering'],
-  },
-  {
-    title: 'LLM Evaluation',
-    competency: 5,
-    category: ['ML Engineering'],
-  },
-  {
-    title: 'AI Red-teaming',
-    competency: 5,
-    category: ['ML Engineering'],
-  },
-  {
-    title: 'LLM APIs',
-    competency: 5,
-    category: ['ML Engineering'],
-  },
-  {
-    title: 'RAG',
-    competency: 4,
-    category: ['ML Engineering'],
-  },
-  {
-    title: 'Prompt Engineering',
-    competency: 4,
-    category: ['ML Engineering'],
-  },
-  {
-    title: 'Vector Databases',
-    competency: 4,
-    category: ['ML Engineering', 'Databases'],
-  },
-  {
-    title: 'PyTorch',
-    competency: 4,
-    category: ['ML Engineering'],
-  },
-  {
-    title: 'Pandas',
-    competency: 5,
-    category: ['ML Engineering', 'Data Engineering'],
-  },
-  // Web Development
-  {
-    title: 'Node.js',
-    competency: 5,
-    category: ['Web Development'],
-  },
-  {
-    title: 'FastAPI',
-    competency: 4,
-    category: ['Web Development'],
+    category: ['Frontend Engineering'],
   },
   {
     title: 'Next.js',
-    competency: 3,
-    category: ['Web Development'],
+    competency: 5,
+    category: ['Frontend Engineering', 'Architecture & Delivery'],
   },
-  // Databases
+  {
+    title: 'GraphQL',
+    competency: 4,
+    category: ['Backend Engineering', 'Frontend Engineering'],
+  },
+  {
+    title: 'Node.js',
+    competency: 5,
+    category: ['Backend Engineering', 'Architecture & Delivery'],
+  },
+  {
+    title: 'NestJS',
+    competency: 4,
+    category: ['Backend Engineering'],
+  },
   {
     title: 'PostgreSQL',
     competency: 4,
-    category: ['Databases'],
+    category: ['Backend Engineering', 'Cloud & Platform'],
   },
   {
-    title: 'Redis',
-    competency: 3,
-    category: ['Databases'],
-  },
-  // Infrastructure
-  {
-    title: 'AWS',
+    title: 'AWS (ECS, EC2, SQS, S3, Lambda, EventBridge)',
     competency: 4,
-    category: ['Infrastructure'],
+    category: ['Cloud & Platform'],
   },
   {
-    title: 'Docker',
+    title: 'System Design',
+    competency: 5,
+    category: ['Architecture & Delivery'],
+  },
+  {
+    title: 'Delivery Planning',
+    competency: 5,
+    category: ['Leadership'],
+  },
+  {
+    title: 'Technical Leadership',
+    competency: 5,
+    category: ['Leadership'],
+  },
+  {
+    title: 'Cross-functional Collaboration',
+    competency: 5,
+    category: ['Leadership', 'Architecture & Delivery'],
+  },
+  {
+    title: 'Performance & SEO Optimization',
     competency: 4,
-    category: ['Infrastructure'],
+    category: ['Frontend Engineering', 'Architecture & Delivery'],
   },
   {
-    title: 'Kubernetes',
-    competency: 3,
-    category: ['Infrastructure'],
-  },
-  {
-    title: 'Observability',
+    title: 'AI-assisted Workflow Integration',
     competency: 4,
-    category: ['Infrastructure', 'ML Engineering'],
+    category: ['Data & AI', 'Architecture & Delivery'],
   },
 ].map((skill) => ({ ...skill, category: skill.category.sort() }));
 
-/**
- * Category colors with pre-computed text contrast.
- * Uses CSS custom properties defined in tailwind.css for runtime styling,
- * with textColor pre-computed from the hex values for accessibility.
- *
- * Hex values from tailwind.css @theme block:
- * --color-skill-1: #6968b3, --color-skill-2: #37b1f5, --color-skill-3: #40494e
- * --color-skill-4: #515dd4, --color-skill-5: #e47272, --color-skill-6: #cc7b94
- */
 const CATEGORY_COLORS: { color: string; textColor: 'dark' | 'light' }[] = [
-  { color: 'var(--color-skill-1)', textColor: 'light' }, // #6968b3 - dark bg
-  { color: 'var(--color-skill-2)', textColor: 'dark' }, // #37b1f5 - light bg
-  { color: 'var(--color-skill-3)', textColor: 'light' }, // #40494e - dark bg
-  { color: 'var(--color-skill-4)', textColor: 'light' }, // #515dd4 - dark bg
-  { color: 'var(--color-skill-5)', textColor: 'dark' }, // #e47272 - light bg
-  { color: 'var(--color-skill-6)', textColor: 'dark' }, // #cc7b94 - light bg
+  { color: 'var(--color-skill-1)', textColor: 'light' },
+  { color: 'var(--color-skill-2)', textColor: 'dark' },
+  { color: 'var(--color-skill-3)', textColor: 'light' },
+  { color: 'var(--color-skill-4)', textColor: 'light' },
+  { color: 'var(--color-skill-5)', textColor: 'dark' },
+  { color: 'var(--color-skill-6)', textColor: 'dark' },
 ];
 
-// Fallback colors for categories beyond the predefined set (with pre-computed contrast)
 const FALLBACK_COLORS: { color: string; textColor: 'dark' | 'light' }[] = [
   { color: '#3896e2', textColor: 'dark' },
   { color: '#c3423f', textColor: 'light' },
@@ -151,10 +97,6 @@ const FALLBACK_COLORS: { color: string; textColor: 'dark' | 'light' }[] = [
   { color: '#64cb7b', textColor: 'dark' },
 ];
 
-/**
- * Build categories from skills with type-safe color assignment.
- * Logs a warning in development if there are more categories than colors.
- */
 function buildCategories(skillsList: Skill[]): Category[] {
   const uniqueCategories = Array.from(
     new Set(skillsList.flatMap(({ category }) => category)),
@@ -176,6 +118,7 @@ function buildCategories(skillsList: Skill[]): Category[] {
       color: '#888888',
       textColor: 'light' as const,
     };
+
     return {
       name: category,
       color: colorConfig.color,
@@ -185,5 +128,12 @@ function buildCategories(skillsList: Skill[]): Category[] {
 }
 
 const categories: Category[] = buildCategories(skills);
+
+export const skillsSection: ResumeSection<Skill> = {
+  id: 'skills',
+  title: 'Skills',
+  summary: 'Lead/Staff-level ownership with hands-on technical depth.',
+  items: skills,
+};
 
 export { categories, skills };
