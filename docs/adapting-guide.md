@@ -17,13 +17,13 @@ Work through these steps in order for the smoothest experience.
 
 ### Step 1: Identity & Contact
 
-| What to change  | File                                        | Notes                           |
-| --------------- | ------------------------------------------- | ------------------------------- |
-| Site URL        | `src/data/profile.ts`                        | Your production domain URL       |
-| Social links    | `src/data/contact.ts`                       | Add/remove platforms as needed  |
-| Portrait photos | `public/images/me-light.jpg`, `me-dark.jpg` | Square images, ~256×256px       |
-| Hero content    | `src/components/Template/Hero.tsx`          | Your name, tagline              |
-| Footer          | `src/components/Template/Footer.tsx`        | Links, copyright                |
+| What to change  | File                                        | Notes                          |
+| --------------- | ------------------------------------------- | ------------------------------ |
+| Site URL        | `src/data/profile.ts`                       | Your production domain URL     |
+| Social links    | `src/data/contact.ts`                       | Add/remove platforms as needed |
+| Portrait photos | `public/images/me-light.jpg`, `me-dark.jpg` | Square images, ~256×256px      |
+| Hero content    | `src/components/Template/Hero.tsx`          | Your name, tagline             |
+| Footer          | `src/components/Template/Footer.tsx`        | Links, copyright               |
 
 ### Step 2: About Page
 
@@ -138,14 +138,14 @@ Edit `app/tailwind.css`. Find `:root` (light mode) and `[data-theme="dark"]` (da
 
 ## Troubleshooting
 
-| Problem                    | Solution                                                   |
-| -------------------------- | ---------------------------------------------------------- |
-| Port 3000 in use           | `yarn dev -- -p 3001`                                      |
-| Styles not updating        | Hard refresh: Cmd+Shift+R (Mac) or Ctrl+Shift+R (Windows)  |
-| Images not appearing       | Use `/images/...` not `public/images/...` in code          |
-| Build failing              | Run `yarn type-check` to find errors                       |
-| CSS 404 or wrong path      | Check `NEXT_PUBLIC_SITE_URL` and verify asset paths         |
-| Git line endings (Windows) | `git config core.autocrlf input`                           |
+| Problem                    | Solution                                                  |
+| -------------------------- | --------------------------------------------------------- |
+| Port 3000 in use           | `yarn dev -- -p 3001`                                     |
+| Styles not updating        | Hard refresh: Cmd+Shift+R (Mac) or Ctrl+Shift+R (Windows) |
+| Images not appearing       | Use `/images/...` not `public/images/...` in code         |
+| Build failing              | Run `yarn type-check` to find errors                      |
+| CSS 404 or wrong path      | Check `NEXT_PUBLIC_SITE_URL` and verify asset paths       |
+| Git line endings (Windows) | `git config core.autocrlf input`                          |
 
 ## Getting Help
 
