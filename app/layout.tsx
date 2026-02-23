@@ -25,7 +25,9 @@ const raleway = Raleway({
   adjustFontFallback: true,
 });
 
-const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://syedyawar.com').replace(/\/$/, '');
+const SITE_URL = (
+  process.env.NEXT_PUBLIC_SITE_URL ?? 'https://syedyawar.com'
+).replace(/\/$/, '');
 const PROFILE_NAME = 'Syed Yawar Hussain';
 const SITE_TITLE = `${PROFILE_NAME} | Portfolio`;
 const siteDescription =
@@ -41,6 +43,7 @@ export const metadata: Metadata = {
     shortcut: ['/images/yh.ico'],
     apple: [{ url: '/images/yh.ico' }],
   },
+  manifest: '/manifest.json',
   description: siteDescription,
   keywords: [
     PROFILE_NAME,
@@ -68,7 +71,7 @@ export const metadata: Metadata = {
     description: siteDescription,
     images: [
       {
-        url: '/images/me.jpg',
+        url: '/images/yawar-profile.jpeg',
         width: 1200,
         height: 630,
         alt: `${PROFILE_NAME} profile photo`,
@@ -79,7 +82,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: SITE_TITLE,
     description: siteDescription,
-    images: ['/images/me.jpg'],
+    images: ['/images/yawar-profile.jpeg'],
   },
   robots: {
     index: true,
@@ -91,6 +94,9 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
+  },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
   },
 };
 
@@ -125,6 +131,16 @@ export default function RootLayout({
         <Script id="theme-init" strategy="beforeInteractive">
           {themeInitScript}
         </Script>
+        <meta
+          name="theme-color"
+          content="#0b1116"
+          media="(prefers-color-scheme: dark)"
+        />
+        <meta
+          name="theme-color"
+          content="#f7f9f8"
+          media="(prefers-color-scheme: light)"
+        />
       </head>
       <body>
         <ScrollToTop />
