@@ -7,7 +7,7 @@ import { useEffect, useReducer, useRef, useState } from 'react';
 const ANIMATION_TICK_MS = 50; // Tick length in milliseconds
 const HOLD_TICKS_AFTER_MESSAGE = 50; // Ticks to wait after message completes
 
-const FALLBACK_EMAIL = 'syedyawar2@gmail.com';
+const FALLBACK_EMAIL = 'contact@syedyawar.com';
 
 function parseMailtoAddress(link: string | undefined): string | null {
   if (!link?.startsWith('mailto:')) return null;
