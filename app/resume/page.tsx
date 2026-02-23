@@ -6,6 +6,7 @@ import Experience from '@/components/Resume/Experience';
 import References from '@/components/Resume/References';
 import ResumeNav from '@/components/Resume/ResumeNav';
 import Skills from '@/components/Resume/Skills';
+import { WebPageSchema } from '@/components/Schema';
 import PageWrapper from '@/components/Template/PageWrapper';
 import courses from '@/data/resume/courses';
 import degrees from '@/data/resume/degrees';
@@ -21,14 +22,20 @@ export const metadata: Metadata = {
 export default function ResumePage() {
   return (
     <PageWrapper>
+      <WebPageSchema
+        title="Resume"
+        description="Syed Yawar Hussain's Resume. Principal Software Engineer focused on architecture ownership, team leadership, and high-impact product delivery."
+        path="/resume"
+      />
       <section className="resume-page">
         <header className="resume-header">
           <h1 className="resume-title">Resume</h1>
           <p className="resume-summary">
-            Engineering leader with 8+ years delivering production web platforms across healthcare,
-            marketplace, and AI-assisted workflows. Currently Principal Software Engineer at
-            Arbisoft, focused on architecture ownership, cross-functional execution, and sustainable
-            product velocity.
+            Engineering leader with 8+ years delivering production web platforms
+            across healthcare, marketplace, and AI-assisted workflows. Currently
+            Principal Software Engineer at Arbisoft, focused on architecture
+            ownership, cross-functional execution, and sustainable product
+            velocity.
           </p>
         </header>
 
