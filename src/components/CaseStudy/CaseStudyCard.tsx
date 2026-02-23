@@ -31,7 +31,10 @@ export default function CaseStudyCard({ caseStudy }: CaseStudyCardProps) {
 
   return (
     <article className="project-card">
-      <Link href={`/case-studies/${caseStudy.id}`} className="project-card-link">
+      <Link
+        href={`/case-studies/${caseStudy.id}`}
+        className="project-card-link"
+      >
         <div className="project-card-content">
           <header className="project-card-header">
             <h2 className="project-card-title">{caseStudy.title}</h2>

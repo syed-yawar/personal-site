@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import CaseStudyDetail from '@/components/CaseStudy/CaseStudyDetail';
+import { BreadcrumbSchema, CaseStudySchema } from '@/components/Schema';
 import PageWrapper from '@/components/Template/PageWrapper';
 import caseStudies from '@/data/case-studies';
 import { SITE_URL } from '@/lib/utils';
@@ -18,7 +19,9 @@ export function generateStaticParams() {
   return caseStudies.map((caseStudy) => ({ slug: caseStudy.id }));
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const caseStudy = getCaseStudyBySlug(slug);
 
@@ -41,11 +44,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: caseStudy.publicSummary,
       url,
       type: 'article',
+      images: [
+        {
+          url: '/images/yawar-profile.jpeg',
+          width: 1200,
+          height: 630,
+          alt: `${caseStudy.title} - Case Study`,
+        },
+      ],
     },
     twitter: {
       card: 'summary_large_image',
       title: caseStudy.title,
       description: caseStudy.publicSummary,
+      images: ['/images/yawar-profile.jpeg'],
     },
   };
 }
@@ -60,6 +72,14 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
   return (
     <PageWrapper>
+      <BreadcrumbSchema
+        items={[
+          { name: 'Home', url: '/' },
+          { name: 'Case Studies', url: '/case-studies' },
+          { name: caseStudy.title, url: `/case-studies/${caseStudy.id}` },
+        ]}
+      />
+      <CaseStudySchema caseStudy={caseStudy} />
       <CaseStudyDetail caseStudy={caseStudy} />
     </PageWrapper>
   );

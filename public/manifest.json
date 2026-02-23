@@ -1,0 +1,15 @@
+{
+  "name": "Syed Yawar Hussain Portfolio",
+  "short_name": "Yawar",
+  "icons": [
+    {
+      "src": "/images/yh.ico",
+      "sizes": "64x64",
+      "type": "image/x-icon"
+    }
+  ],
+  "theme_color": "#0b1116",
+  "background_color": "#0b1116",
+  "display": "standalone",
+  "start_url": "/"
+}

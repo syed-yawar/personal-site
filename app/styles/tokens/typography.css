@@ -7,8 +7,7 @@
   /* ===================
      FONT FAMILIES
      =================== */
-  --font-sans:
-    var(--font-source-sans), 'Source Sans 3', 'Avenir Next', 'Segoe UI', sans-serif;
+  --font-sans: var(--font-source-sans), 'Source Sans 3', 'Avenir Next', 'Segoe UI', sans-serif;
   --font-heading:
     'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', 'Cormorant Garamond', serif;
   --font-mono: 'IBM Plex Mono', 'SFMono-Regular', 'Courier New', monospace;

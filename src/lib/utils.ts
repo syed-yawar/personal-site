@@ -11,6 +11,10 @@ export const SITE_URL = (
 export const AUTHOR_NAME = 'Syed Yawar Hussain';
 export const TWITTER_HANDLE = '';
 
+// OG / social image
+export const OG_IMAGE_PATH = '/images/yawar-profile.jpeg';
+export const OG_IMAGE_URL = `${SITE_URL}${OG_IMAGE_PATH}`;
+
 // Image dimension constants
 export const AVATAR_SIZE = {
   hero: 120,

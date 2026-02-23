@@ -24,14 +24,14 @@ const data: ContactItem[] = [
   },
   {
     label: 'Email',
-    link: 'mailto:syedyawar2@gmail.com',
+    link: 'mailto:contact@syedyawar.com',
     kind: 'email',
     isPrimary: true,
     icon: faEnvelope,
   },
   {
     label: 'Phone (available on request)',
-    link: 'mailto:syedyawar2@gmail.com?subject=Phone%20Call%20Request',
+    link: 'mailto:contact@syedyawar.com?subject=Phone%20Call%20Request',
     kind: 'phone',
     isPlaceholder: true,
     icon: faEnvelope,

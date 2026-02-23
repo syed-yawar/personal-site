@@ -3,7 +3,7 @@ import type { ContactLink, Profile } from '@/types/content';
 export const profileContactLinks: ContactLink[] = [
   {
     label: 'Email',
-    link: 'mailto:syedyawar2@gmail.com',
+    link: 'mailto:contact@syedyawar.com',
     kind: 'email',
     isPrimary: true,
   },
@@ -19,7 +19,7 @@ export const profileContactLinks: ContactLink[] = [
   },
   {
     label: 'Phone (available on request)',
-    link: 'mailto:syedyawar2@gmail.com?subject=Phone%20Call%20Request',
+    link: 'mailto:contact@syedyawar.com?subject=Phone%20Call%20Request',
     kind: 'phone',
     isPlaceholder: true,
   },

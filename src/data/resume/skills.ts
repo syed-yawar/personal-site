@@ -1,8 +1,4 @@
-import type {
-  ResumeSection,
-  SkillCategory,
-  SkillItem,
-} from '@/types/content';
+import type { ResumeSection, SkillCategory, SkillItem } from '@/types/content';
 
 export type Skill = SkillItem;
 export type Category = SkillCategory;

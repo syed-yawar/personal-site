@@ -5,7 +5,9 @@ import caseStudies from '@/data/case-studies';
 export const dynamic = 'force-static';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://syedyawar.com').replace(/\/$/, '');
+  const siteUrl = (
+    process.env.NEXT_PUBLIC_SITE_URL ?? 'https://syedyawar.com'
+  ).replace(/\/$/, '');
   const currentDate = new Date();
   const staticRoutes = [
     { path: '', changeFrequency: 'weekly' as const, priority: 1 },
@@ -26,12 +28,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: route.priority,
   }));
 
-  const caseStudyEntries: MetadataRoute.Sitemap = caseStudies.map((caseStudy) => ({
-    url: `${siteUrl}/case-studies/${caseStudy.id}`,
-    lastModified: new Date(caseStudy.timeline.end ?? caseStudy.timeline.start),
-    changeFrequency: 'monthly',
-    priority: 0.6,
-  }));
+  const caseStudyEntries: MetadataRoute.Sitemap = caseStudies.map(
+    (caseStudy) => ({
+      url: `${siteUrl}/case-studies/${caseStudy.id}`,
+      lastModified: new Date(
+        caseStudy.timeline.end ?? caseStudy.timeline.start,
+      ),
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    }),
+  );
 
   return [...staticEntries, ...caseStudyEntries];
 }

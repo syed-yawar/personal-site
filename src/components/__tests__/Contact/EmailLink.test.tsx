@@ -126,7 +126,7 @@ describe('EmailLink', () => {
     });
 
     const link = screen.getByRole('link');
-    expect(link.getAttribute('href')).toBe('mailto:syedyawar2@gmail.com');
+    expect(link.getAttribute('href')).toBe('mailto:contact@syedyawar.com');
   });
 
   it('has invalid class when email prefix is invalid', async () => {

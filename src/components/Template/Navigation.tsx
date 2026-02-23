@@ -18,7 +18,11 @@ export default function Navigation() {
 
   return (
     <header className="site-header">
-      <Link href="/" className="site-logo" aria-label="Syed Yawar Hussain homepage">
+      <Link
+        href="/"
+        className="site-logo"
+        aria-label="Syed Yawar Hussain homepage"
+      >
         <span className="logo-inner">
           <span className="logo-mark" aria-hidden="true">
             YH

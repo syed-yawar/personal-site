@@ -40,7 +40,9 @@ describe('Navigation', () => {
 
     // Should have links for About, Case Studies, Resume, and Contact
     expect(screen.getByRole('link', { name: /about/i })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /case studies/i })).toBeInTheDocument();
+    expect(
+      screen.getByRole('link', { name: /case studies/i }),
+    ).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /resume/i })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /contact/i })).toBeInTheDocument();
   });

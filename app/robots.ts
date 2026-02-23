@@ -1,6 +1,8 @@
 import { MetadataRoute } from 'next';
 
-const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://syedyawar.com').replace(/\/$/, '');
+const SITE_URL = (
+  process.env.NEXT_PUBLIC_SITE_URL ?? 'https://syedyawar.com'
+).replace(/\/$/, '');
 
 export const dynamic = 'force-static';
 

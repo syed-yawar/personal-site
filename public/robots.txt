@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: /api
-
-Sitemap: https://syedyawar.com/sitemap.xml

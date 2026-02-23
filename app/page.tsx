@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 import CaseStudyCard from '@/components/CaseStudy/CaseStudyCard';
-import { PersonSchema } from '@/components/Schema';
+import { PersonSchema, WebSiteSchema } from '@/components/Schema';
 import Hero from '@/components/Template/Hero';
 import PageWrapper from '@/components/Template/PageWrapper';
 import caseStudies from '@/data/case-studies';
@@ -18,6 +18,7 @@ export default function HomePage() {
   return (
     <PageWrapper>
       <PersonSchema />
+      <WebSiteSchema />
       <Hero />
 
       <section
@@ -28,7 +29,8 @@ export default function HomePage() {
           <span className="section-title-text">Featured Case Studies</span>
         </h2>
         <p className="section-desc">
-          Delivery narratives across healthcare, marketplace, and AI product platforms.
+          Delivery narratives across healthcare, marketplace, and AI product
+          platforms.
         </p>
 
         <div className="projects-grid home-featured-grid">

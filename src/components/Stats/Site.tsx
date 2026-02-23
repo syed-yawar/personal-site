@@ -32,10 +32,13 @@ const FALLBACK_DATA: GitHubData = {
  */
 async function fetchGitHubStats(): Promise<GitHubData> {
   try {
-    const response = await fetch('https://api.github.com/repos/syed-yawar/personal-site', {
-      headers: { Accept: 'application/vnd.github.v3+json' },
-      next: { revalidate: false },
-    });
+    const response = await fetch(
+      'https://api.github.com/repos/syed-yawar/personal-site',
+      {
+        headers: { Accept: 'application/vnd.github.v3+json' },
+        next: { revalidate: false },
+      },
+    );
 
     if (!response.ok) {
       console.warn(`GitHub API returned ${response.status}, using fallback`);

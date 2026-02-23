@@ -116,7 +116,10 @@ export default function CaseStudyDetail({ caseStudy }: CaseStudyDetailProps) {
       </section>
 
       <Section id="context" title="Context">
-        <p>{narrative?.context || 'Context is not available for this case study.'}</p>
+        <p>
+          {narrative?.context ||
+            'Context is not available for this case study.'}
+        </p>
       </Section>
 
       <Section id="challenge" title="Challenge">

@@ -29,7 +29,9 @@ describe('Hero', () => {
   it('displays hero chips for credentials', () => {
     render(<Hero />);
 
-    expect(screen.getByText('Next.js & Node.js Architecture')).toBeInTheDocument();
+    expect(
+      screen.getByText('Next.js & Node.js Architecture'),
+    ).toBeInTheDocument();
     expect(screen.getByText('Engineering Leadership')).toBeInTheDocument();
     expect(screen.getByText('Cross-Functional Delivery')).toBeInTheDocument();
   });

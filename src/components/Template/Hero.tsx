@@ -14,7 +14,12 @@ export default function Hero() {
         <div className="hero-panel">
           <aside className="hero-aside">
             <div className="hero-avatar">
-              <ThemePortrait width={160} height={160} priority objectPosition="center 20%" />
+              <ThemePortrait
+                width={160}
+                height={160}
+                priority
+                objectPosition="center 20%"
+              />
             </div>
             <p className="hero-caption">
               Turning complex workflows into maintainable product systems.
@@ -31,7 +36,8 @@ export default function Hero() {
               <a href="https://arbisoft.com" className="hero-highlight">
                 Arbisoft
               </a>
-              , leading delivery across healthcare, marketplace, and AI-assisted product platforms.
+              , leading delivery across healthcare, marketplace, and AI-assisted
+              product platforms.
             </p>
 
             <div className="hero-chips">
