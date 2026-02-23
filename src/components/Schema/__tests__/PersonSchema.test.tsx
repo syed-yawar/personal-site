@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-import { AUTHOR_NAME, SITE_URL } from '@/lib/utils';
+import { AUTHOR_NAME, OG_IMAGE_URL, SITE_URL } from '@/lib/utils';
 import PersonSchema from '../PersonSchema';
 
 describe('PersonSchema', () => {
@@ -46,7 +46,7 @@ describe('PersonSchema', () => {
     const data = JSON.parse(script?.innerHTML || '{}');
 
     expect(data.url).toBe(SITE_URL);
-    expect(data.image).toBe(`${SITE_URL}/images/me.jpg`);
+    expect(data.image).toBe(OG_IMAGE_URL);
   });
 
   it('includes social links in sameAs', () => {

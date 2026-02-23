@@ -1,7 +1,7 @@
 import contact from '@/data/contact';
 import degrees from '@/data/resume/degrees';
 import work from '@/data/resume/work';
-import { AUTHOR_NAME, SITE_URL } from '@/lib/utils';
+import { AUTHOR_NAME, OG_IMAGE_URL, SITE_URL } from '@/lib/utils';
 import JsonLd from './JsonLd';
 
 export default function PersonSchema() {
@@ -24,7 +24,7 @@ export default function PersonSchema() {
     '@type': 'Person',
     name: AUTHOR_NAME,
     url: SITE_URL,
-    image: `${SITE_URL}/images/me.jpg`,
+    image: OG_IMAGE_URL,
     jobTitle: currentJob.position,
     ...(email && { email }),
     sameAs: socialLinks,

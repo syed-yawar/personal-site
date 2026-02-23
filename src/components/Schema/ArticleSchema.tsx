@@ -1,5 +1,5 @@
 import type { Post } from '@/lib/posts';
-import { AUTHOR_NAME, SITE_URL } from '@/lib/utils';
+import { AUTHOR_NAME, OG_IMAGE_URL, SITE_URL } from '@/lib/utils';
 import JsonLd from './JsonLd';
 
 interface ArticleSchemaProps {
@@ -9,14 +9,12 @@ interface ArticleSchemaProps {
 export default function ArticleSchema({ post }: ArticleSchemaProps) {
   const articleUrl = `${SITE_URL}/writing/${post.slug}`;
 
-  const authorImage = `${SITE_URL}/images/me.jpg`;
-
   const articleData = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
     headline: post.title,
     description: post.description,
-    image: authorImage,
+    image: OG_IMAGE_URL,
     datePublished: post.date,
     dateModified: post.date,
     url: articleUrl,
@@ -31,7 +29,7 @@ export default function ArticleSchema({ post }: ArticleSchemaProps) {
       url: SITE_URL,
       logo: {
         '@type': 'ImageObject',
-        url: authorImage,
+        url: OG_IMAGE_URL,
       },
     },
     mainEntityOfPage: {

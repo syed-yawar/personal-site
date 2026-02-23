@@ -2,7 +2,7 @@ import { render } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
 import type { Post } from '@/lib/posts';
-import { AUTHOR_NAME, SITE_URL } from '@/lib/utils';
+import { AUTHOR_NAME, OG_IMAGE_URL, SITE_URL } from '@/lib/utils';
 import ArticleSchema from '../ArticleSchema';
 
 const mockPost: Post = {
@@ -87,7 +87,7 @@ describe('ArticleSchema', () => {
     expect(data.publisher.name).toBe(AUTHOR_NAME);
     expect(data.publisher.url).toBe(SITE_URL);
     expect(data.publisher.logo['@type']).toBe('ImageObject');
-    expect(data.publisher.logo.url).toBe(`${SITE_URL}/images/me.jpg`);
+    expect(data.publisher.logo.url).toBe(OG_IMAGE_URL);
   });
 
   it('includes image for rich search results', () => {
@@ -98,7 +98,7 @@ describe('ArticleSchema', () => {
     );
     const data = JSON.parse(script?.innerHTML || '{}');
 
-    expect(data.image).toBe(`${SITE_URL}/images/me.jpg`);
+    expect(data.image).toBe(OG_IMAGE_URL);
   });
 
   it('includes mainEntityOfPage WebPage reference', () => {
