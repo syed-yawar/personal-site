@@ -32,6 +32,7 @@ export default function ThemePortrait({
         width={width}
         height={height}
         loading={priority ? 'eager' : 'lazy'}
+        fetchPriority={priority ? 'high' : undefined}
         decoding="async"
         style={{ objectPosition }}
         className="theme-portrait-light"
@@ -42,7 +43,8 @@ export default function ThemePortrait({
         alt="Syed Yawar Hussain"
         width={width}
         height={height}
-        loading="lazy"
+        loading={priority ? 'eager' : 'lazy'}
+        fetchPriority={priority ? 'high' : undefined}
         decoding="async"
         style={{ objectPosition }}
         className="theme-portrait-dark"

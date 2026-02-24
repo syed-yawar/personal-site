@@ -23,6 +23,7 @@ const nextConfig: NextConfig = {
     optimizePackageImports: [
       '@fortawesome/react-fontawesome',
       '@fortawesome/fontawesome-svg-core',
+      'framer-motion',
     ],
   },
 };

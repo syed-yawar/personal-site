@@ -48,6 +48,9 @@ build/Release/
 .DS_Store
 Thumbs.db
 
+# Worktrees
+.worktrees/
+
 # Misc
 .grunt/
 .lock-wscript

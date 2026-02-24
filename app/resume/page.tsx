@@ -13,10 +13,22 @@ import degrees from '@/data/resume/degrees';
 import { categories, skills } from '@/data/resume/skills';
 import work from '@/data/resume/work';
 
+const PAGE_DESCRIPTION =
+  "Syed Yawar Hussain's Resume. Principal Software Engineer focused on architecture ownership, team leadership, and high-impact product delivery.";
+
 export const metadata: Metadata = {
   title: 'Resume',
-  description:
-    "Syed Yawar Hussain's Resume. Principal Software Engineer focused on architecture ownership, team leadership, and high-impact product delivery.",
+  description: PAGE_DESCRIPTION,
+  alternates: { canonical: '/resume' },
+  openGraph: {
+    url: '/resume',
+    title: 'Resume',
+    description: PAGE_DESCRIPTION,
+  },
+  twitter: {
+    title: 'Resume',
+    description: PAGE_DESCRIPTION,
+  },
 };
 
 export default function ResumePage() {
@@ -24,7 +36,7 @@ export default function ResumePage() {
     <PageWrapper>
       <WebPageSchema
         title="Resume"
-        description="Syed Yawar Hussain's Resume. Principal Software Engineer focused on architecture ownership, team leadership, and high-impact product delivery."
+        description={PAGE_DESCRIPTION}
         path="/resume"
       />
       <section className="resume-page">

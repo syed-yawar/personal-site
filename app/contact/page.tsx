@@ -6,9 +6,22 @@ import { WebPageSchema } from '@/components/Schema';
 
 import PageWrapper from '@/components/Template/PageWrapper';
 
+const PAGE_DESCRIPTION =
+  'Contact Syed Yawar Hussain via email or social platforms.';
+
 export const metadata: Metadata = {
   title: 'Contact',
-  description: 'Contact Syed Yawar Hussain via email @ contact@syedyawar.com',
+  description: PAGE_DESCRIPTION,
+  alternates: { canonical: '/contact' },
+  openGraph: {
+    url: '/contact',
+    title: 'Contact',
+    description: PAGE_DESCRIPTION,
+  },
+  twitter: {
+    title: 'Contact',
+    description: PAGE_DESCRIPTION,
+  },
 };
 
 export default function ContactPage() {

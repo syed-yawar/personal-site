@@ -5,10 +5,22 @@ import MarkdownRenderer from '@/components/Template/MarkdownRenderer';
 import PageWrapper from '@/components/Template/PageWrapper';
 import { aboutMarkdown } from '@/data/about';
 
+const PAGE_DESCRIPTION =
+  'Learn about Syed Yawar Hussain, a Principal Software Engineer delivering scalable web platforms and product-focused engineering outcomes.';
+
 export const metadata: Metadata = {
   title: 'About',
-  description:
-    'Learn about Syed Yawar Hussain, a Principal Software Engineer delivering scalable web platforms and product-focused engineering outcomes.',
+  description: PAGE_DESCRIPTION,
+  alternates: { canonical: '/about' },
+  openGraph: {
+    url: '/about',
+    title: 'About',
+    description: PAGE_DESCRIPTION,
+  },
+  twitter: {
+    title: 'About',
+    description: PAGE_DESCRIPTION,
+  },
 };
 
 const countWords = (str: string) =>
@@ -19,7 +31,7 @@ export default function AboutPage() {
     <PageWrapper>
       <WebPageSchema
         title="About"
-        description="Learn about Syed Yawar Hussain, a Principal Software Engineer delivering scalable web platforms and product-focused engineering outcomes."
+        description={PAGE_DESCRIPTION}
         path="/about"
         type="AboutPage"
       />

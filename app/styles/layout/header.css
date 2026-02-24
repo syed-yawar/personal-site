@@ -64,7 +64,9 @@
   display: block;
   margin: 0 auto;
   max-width: 100%;
+  min-width: 0;
   opacity: 1;
+  overflow-x: hidden;
   padding: 0;
   transition: opacity var(--duration-menu) ease;
   width: 100%;
