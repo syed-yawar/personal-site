@@ -62,6 +62,19 @@ const caseStudies: CaseStudy[] = [
           'Extraction services convert raw files into structured records.',
           'Operations validates results in admin workflows before customer publishing.',
         ],
+        mermaid: `flowchart LR
+  subgraph Partner
+    A[Lab Files]
+  end
+  subgraph AWS
+    B[S3 Bucket]
+    C[Extraction]
+    D[Admin Review]
+  end
+  subgraph Customer
+    E[Results Portal]
+  end
+  A --> B --> C --> D --> E`,
       },
       execution: [
         'Improved public page performance from roughly 50-level baseline scores to high-80s range on most pages via targeted optimization.',
@@ -227,6 +240,139 @@ const caseStudies: CaseStudy[] = [
         'Made architecture decisions that matched delivery urgency.',
         'Combined technical depth with clear prioritization in a short engagement.',
         'Drove high-impact execution in a narrow timeline.',
+      ],
+    },
+    sanitized: true,
+  },
+  {
+    id: 'hazelsoft-service-operations',
+    title: 'Service Operations Platform at HazelSoft',
+    client: 'HazelSoft',
+    role: 'Software Engineer',
+    timeline: {
+      start: '2019-04-01',
+      end: '2021-01-01',
+      status: 'completed',
+    },
+    sector: 'Service Operations',
+    stack: ['Angular', 'React', 'Node.js', '.NET', 'MySQL', 'SQL Server'],
+    publicSummary:
+      'Delivered service request workflows and field operations tooling across submission, dispatch, approval, and fulfillment flows.',
+    narrative: {
+      context:
+        'The product needed to support field service teams managing requests from submission through completion, with role-based access and third-party integrations.',
+      challenge:
+        'Coordinating multiple workflows across different user roles while integrating external APIs and maintaining a consistent UX.',
+      constraints: [
+        'Legacy and greenfield surfaces coexisting during migration.',
+        'Third-party API reliability and rate limits affecting integration design.',
+        'Need for audit trails and approval flows in service operations.',
+      ],
+      responsibilities: [
+        'Built FieldTrack24 service request workflows covering submission, dispatch, approval, and fulfillment.',
+        'Integrated third-party APIs including delivery providers and mapping services.',
+        'Improved existing scripts and UI flows for operational efficiency.',
+      ],
+      architecture: {
+        overview:
+          'A hybrid stack with Angular and React frontends, .NET and Node.js backends, and SQL Server and MySQL for persistence.',
+        frontend: [
+          'Angular and React interfaces for service request and field operations.',
+          'Role-based views for different user personas in the workflow.',
+        ],
+        backend: [
+          '.NET and Node.js services for business logic and API orchestration.',
+          'SQL Server and MySQL for transactional and operational data.',
+        ],
+        integrations: [
+          'Third-party delivery and mapping APIs for logistics and dispatch.',
+          'External systems for approval and notification flows.',
+        ],
+        dataFlow: [
+          'Requests flow from submission through dispatch and approval to fulfillment.',
+          'Status updates propagate to stakeholders via integrated channels.',
+        ],
+      },
+      execution: [
+        'Delivered end-to-end service request workflows on schedule.',
+        'Integrated multiple third-party APIs with error handling and fallbacks.',
+        'Iterated on UI flows based on operational feedback.',
+      ],
+      outcomes: [
+        'Streamlined service operations with clear workflow visibility.',
+        'Reduced manual handoffs through integrated approval and dispatch.',
+        'Established patterns for third-party integration that scaled to additional providers.',
+      ],
+      leadershipSignals: [
+        'Owned feature delivery across frontend and backend layers.',
+        'Balanced technical debt with delivery pace in a mixed-stack environment.',
+      ],
+    },
+    sanitized: true,
+  },
+  {
+    id: 'smart-venture-delivery-management',
+    title: 'Delivery Management at Smart Venture',
+    client: 'Smart Venture',
+    role: 'Software Development Manager',
+    timeline: {
+      start: '2017-08-01',
+      end: '2019-03-01',
+      status: 'completed',
+    },
+    sector: 'Professional Services',
+    stack: ['Web Platforms', 'Client Delivery', 'Team Coordination'],
+    publicSummary:
+      'Managed software delivery teams and coordinated product implementation from planning through release for client-facing web platforms.',
+    narrative: {
+      context:
+        'Smart Venture delivered custom web platforms for clients, requiring coordination between engineering teams, stakeholders, and release timelines.',
+      challenge:
+        'Maintaining delivery quality and cadence while aligning engineering execution with changing client priorities.',
+      constraints: [
+        'Client-driven scope and timeline expectations.',
+        'Multiple concurrent projects with shared team capacity.',
+        'Need for clear communication between technical and non-technical stakeholders.',
+      ],
+      responsibilities: [
+        'Owned project execution cadence and delivery quality for client-facing platforms.',
+        'Aligned engineering execution with stakeholder priorities and release timelines.',
+        'Coordinated planning, estimation, and status reporting across teams.',
+      ],
+      architecture: {
+        overview:
+          'Client-facing web platforms delivered through structured project management and engineering execution.',
+        frontend: [
+          'Custom web interfaces tailored to client requirements.',
+          'Responsive and accessible design for end-user workflows.',
+        ],
+        backend: [
+          'Backend services supporting client-specific business logic.',
+          'Integration points for client systems where required.',
+        ],
+        integrations: [
+          'Client systems and data sources where applicable.',
+          'Deployment and release pipelines for production delivery.',
+        ],
+        dataFlow: [
+          'Requirements flow from stakeholders through planning to implementation.',
+          'Releases follow defined cadence with quality gates and sign-off.',
+        ],
+      },
+      execution: [
+        'Maintained predictable delivery cadence across multiple client engagements.',
+        'Facilitated technical and business alignment during planning and execution.',
+        'Drove accountability for quality and timeline commitments.',
+      ],
+      outcomes: [
+        'Improved delivery predictability for client engagements.',
+        'Stronger alignment between engineering output and stakeholder expectations.',
+        'Clearer communication patterns for cross-functional coordination.',
+      ],
+      leadershipSignals: [
+        'Managed team delivery and client communication.',
+        'Owned delivery accountability from planning through release.',
+        'Bridged technical execution and business priorities.',
       ],
     },
     sanitized: true,
