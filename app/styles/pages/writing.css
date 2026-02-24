@@ -269,3 +269,26 @@
   border-radius: var(--radius-sm);
   margin: 1.5rem 0;
 }
+
+/* Mermaid diagrams */
+.mermaid-container {
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+  padding: 1.5rem 0;
+  margin: 1.5rem 0;
+}
+
+.mermaid-container svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.mermaid-error {
+  font-size: var(--text-sm);
+  color: var(--color-fg-muted);
+  padding: 1rem;
+  background: var(--color-bg-offset);
+  border-radius: var(--radius-sm);
+  margin: 1.5rem 0;
+}
