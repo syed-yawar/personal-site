@@ -275,6 +275,11 @@
   text-align: center;
 }
 
+/* Case Studies standalone page */
+.case-studies-page {
+  padding-top: 5rem;
+}
+
 /* Case Study Card V2 */
 
 .cs-card-v2 {
