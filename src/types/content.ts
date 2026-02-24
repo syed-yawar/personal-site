@@ -103,6 +103,7 @@ export interface Profile {
   headline: string;
   currentRole: string;
   location: string;
+  careerStartDate: string;
   yearsOfExperience: number;
   targetRole: string;
   summary: string;

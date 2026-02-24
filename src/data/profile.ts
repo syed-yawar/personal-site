@@ -1,5 +1,15 @@
 import type { ContactLink, Profile } from '@/types/content';
 
+const CAREER_START = '2017-09-01';
+
+export function getYearsOfExperience(): number {
+  const start = new Date(CAREER_START);
+  const now = new Date();
+  return Math.floor(
+    (now.getTime() - start.getTime()) / (1000 * 60 * 60 * 24 * 365.25),
+  );
+}
+
 export const profileContactLinks: ContactLink[] = [
   {
     label: 'Email',
@@ -30,10 +40,10 @@ const profile: Profile = {
   headline: 'Lead/Staff Software Engineer building high-trust web platforms',
   currentRole: 'Principal Software Engineer at Arbisoft',
   location: 'Lahore, Pakistan',
-  yearsOfExperience: 8,
+  careerStartDate: CAREER_START,
+  yearsOfExperience: getYearsOfExperience(),
   targetRole: 'Lead/Staff Engineer',
-  summary:
-    'Engineering leader with 8+ years of experience across modern frontend and Node.js services. Delivers production systems by aligning architecture, execution, and cross-functional communication.',
+  summary: `Engineering leader with ${getYearsOfExperience()}+ years of experience across modern frontend and Node.js services. Delivers production systems by aligning architecture, execution, and cross-functional communication.`,
   strengths: [
     'Architecture ownership for Next.js and Node.js platforms',
     'Delivery leadership from requirements to production rollout',
