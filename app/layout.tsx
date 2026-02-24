@@ -59,9 +59,6 @@ export const metadata: Metadata = {
   creator: PROFILE_NAME,
   publisher: PROFILE_NAME,
   metadataBase: new URL(SITE_URL),
-  alternates: {
-    canonical: '/',
-  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
