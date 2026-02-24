@@ -1,6 +1,7 @@
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub';
 import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons/faLinkedinIn';
+import { faMedium } from '@fortawesome/free-brands-svg-icons/faMedium';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons/faEnvelope';
 
 import type { ContactLink } from '@/types/content';
@@ -21,6 +22,12 @@ const data: ContactItem[] = [
     link: 'https://github.com/syed-yawar',
     kind: 'github',
     icon: faGithub,
+  },
+  {
+    label: 'Medium',
+    link: 'https://medium.com/@syedyawar2',
+    kind: 'medium',
+    icon: faMedium,
   },
   {
     label: 'Email',

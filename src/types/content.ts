@@ -2,6 +2,7 @@ export type ContactLinkKind =
   | 'email'
   | 'linkedin'
   | 'github'
+  | 'medium'
   | 'phone'
   | 'website'
   | 'other';

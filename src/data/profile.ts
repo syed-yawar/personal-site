@@ -28,6 +28,11 @@ export const profileContactLinks: ContactLink[] = [
     kind: 'github',
   },
   {
+    label: 'Medium',
+    link: 'https://medium.com/@syedyawar2',
+    kind: 'medium',
+  },
+  {
     label: 'Phone (available on request)',
     link: 'mailto:contact@syedyawar.com?subject=Phone%20Call%20Request',
     kind: 'phone',
