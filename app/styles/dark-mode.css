@@ -47,7 +47,7 @@
   --color-fg-muted: rgba(230, 237, 242, 0.54);
 
   /* Header surface tokens */
-  --color-header-bg: color-mix(in srgb, var(--color-bg-alt) 88%, transparent);
+  --color-header-bg: var(--color-bg-alt);
   --color-header-border: rgba(214, 232, 239, 0.2);
   --color-header-highlight: color-mix(in srgb, var(--color-accent) 46%, transparent);
 
