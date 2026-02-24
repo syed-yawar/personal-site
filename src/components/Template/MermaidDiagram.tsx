@@ -45,6 +45,13 @@ export default function MermaidDiagram({ code }: MermaidDiagramProps) {
 
     return () => {
       mounted = false;
+      // Clean up any temporary DOM element created by mermaid.render
+      if (typeof document !== 'undefined') {
+        const tempElement = document.getElementById(diagramId);
+        if (tempElement && tempElement.parentNode) {
+          tempElement.parentNode.removeChild(tempElement);
+        }
+      }
     };
   }, [code, id]);
 
