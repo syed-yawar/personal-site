@@ -51,7 +51,7 @@ Work through these steps in order for the smoothest experience.
 
 The site includes a blog at `/writing` with RSS feed. You can use it, customize it, or remove it entirely.
 
-**To add posts**, create Markdown files in `content/writing/`. The filename becomes the URL slug (e.g., `my-post.md` → `/writing/my-post`).
+**To add posts**, create Markdown files in `content/writing/`. The filename becomes the URL slug (e.g., `my-post.md` → `/writing/my-post`). Use fenced ` ```mermaid ` code blocks for diagrams. Write like a human engineer: avoid emojis, em dashes, and AI-style phrasing. See [content style guide](./content-style.md).
 
 ```markdown
 ---
