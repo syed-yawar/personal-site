@@ -1,8 +1,8 @@
-import Markdown from 'markdown-to-jsx';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import { ArticleSchema, BreadcrumbSchema } from '@/components/Schema';
+import MarkdownRenderer from '@/components/Template/MarkdownRenderer';
 import PageWrapper from '@/components/Template/PageWrapper';
 import { getAllPosts, getPostBySlug } from '@/lib/posts';
 import { SITE_URL } from '@/lib/utils';
@@ -85,9 +85,7 @@ export default async function PostPage({ params }: PageProps) {
           <h1 className="post-title">{post.title}</h1>
           <p className="post-description">{post.description}</p>
         </header>
-        <div className="prose">
-          <Markdown>{post.content}</Markdown>
-        </div>
+        <MarkdownRenderer markdown={post.content} className="prose" />
       </article>
     </PageWrapper>
   );
