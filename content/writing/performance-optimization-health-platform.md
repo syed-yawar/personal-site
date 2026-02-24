@@ -8,7 +8,7 @@ description: 'Practical lessons from improving Core Web Vitals and SEO scores on
 
 When I took ownership of the Fitnescity public website, the site was functional. Users could browse tests, read content, and navigate to booking flows. But Lighthouse scores hovered around 50, page loads felt sluggish on mobile, and organic search traffic wasn't where it needed to be for a consumer health brand.
 
-Performance wasn't a feature request — it was a business problem. Slow pages meant lower conversions and worse search visibility.
+Performance wasn't a feature request. It was a business problem. Slow pages meant lower conversions and worse search visibility.
 
 ## Diagnosing Before Fixing
 
@@ -45,17 +45,17 @@ Some pages were accidentally client-rendering content that could have been serve
 Not every optimization attempt paid off. A few things I tried that weren't worth the complexity:
 
 - **Aggressive code splitting at the route level** added more network round-trips on slow connections than it saved in bundle size. The sweet spot was splitting at the feature level, not the page level.
-- **Preloading everything** — I initially added preload hints for fonts, critical CSS, and key images. Too many preload hints compete with each other and can actually delay critical resources. I trimmed it back to only the LCP image and primary font.
+  **Preloading everything.** I initially added preload hints for fonts, critical CSS, and key images. Too many preload hints compete with each other and can actually delay critical resources. I trimmed it back to only the LCP image and primary font.
 
 ## Measuring the Outcome
 
 After several weeks of iterative optimization, most pages were scoring in the high 80s on Lighthouse, with some landing pages hitting the low 90s. More importantly, real-user metrics from field data confirmed the improvements weren't just lab artifacts.
 
-The SEO improvements followed — better Core Web Vitals contributed to improved search rankings, and the faster pages reduced bounce rates on high-intent landing pages.
+The SEO improvements followed. Better Core Web Vitals contributed to improved search rankings, and the faster pages reduced bounce rates on high-intent landing pages.
 
 ## Lessons for the Next Project
 
 1. **Measure first, optimize second.** Lab tools (Lighthouse, WebPageTest) and field data (CrUX, analytics) tell different stories. You need both.
-2. **Performance is a system property.** It's not one fix — it's image delivery, rendering strategy, bundle size, and caching working together.
+2. **Performance is a system property.** It's not one fix. It's image delivery, rendering strategy, bundle size, and caching working together.
 3. **Good defaults compound.** Setting up proper image handling, SSR, and bundle analysis early prevents the slow creep that leads to 50-score pages.
 4. **Performance work is never done.** Every new feature, CMS content update, or third-party integration can regress performance. Automated monitoring is essential.

@@ -8,7 +8,7 @@ description: 'A practical guide to setting up real-time WebSocket communication 
 
 ## Why STOMP Over Raw WebSockets
 
-WebSockets give you a persistent, bidirectional connection between client and server. But raw WebSocket connections leave you handling message routing, subscriptions, and reconnection logic yourself. STOMP (Simple Text Oriented Messaging Protocol) adds a thin messaging layer on top of WebSockets — destinations, subscriptions, headers — that makes real-time communication structured and predictable.
+WebSockets give you a persistent, bidirectional connection between client and server. But raw WebSocket connections leave you handling message routing, subscriptions, and reconnection logic yourself. STOMP (Simple Text Oriented Messaging Protocol) adds a thin messaging layer on top of WebSockets (destinations, subscriptions, headers) that makes real-time communication structured and predictable.
 
 If your backend uses Spring Boot (which ships with STOMP support via Spring WebSocket), STOMP.js on the frontend is the natural pairing.
 
@@ -16,9 +16,21 @@ If your backend uses Spring Boot (which ships with STOMP support via Spring WebS
 
 The integration has three layers:
 
-1. **STOMP Client** — manages the WebSocket connection lifecycle (connect, disconnect, reconnect)
-2. **Redux Toolkit Slice** — holds real-time state (messages, connection status) in the global store
-3. **React Components** — subscribe to Redux state and dispatch actions to send messages
+```mermaid
+flowchart TB
+  subgraph Client
+    STOMP[STOMP Client]
+    Redux[Redux Slice]
+    React[React Components]
+  end
+  STOMP -->|dispatch| Redux
+  Redux -->|select| React
+  React -->|send| STOMP
+```
+
+1. **STOMP Client** manages the WebSocket connection lifecycle (connect, disconnect, reconnect)
+2. **Redux Toolkit Slice** holds real-time state (messages, connection status) in the global store
+3. **React Components** subscribe to Redux state and dispatch actions to send messages
 
 The key design decision is keeping the STOMP client outside of React's component tree. WebSocket connections are long-lived and shouldn't be tied to component mount/unmount cycles.
 
@@ -37,7 +49,7 @@ const stompClient = new Client({
 });
 ```
 
-The `reconnectDelay` and heartbeat settings are important for production use — they keep the connection alive and handle network interruptions gracefully without manual retry logic.
+The `reconnectDelay` and heartbeat settings are important for production use. They keep the connection alive and handle network interruptions without manual retry logic.
 
 ## Redux Toolkit Slice for Real-Time State
 
@@ -73,7 +85,7 @@ const webSocketSlice = createSlice({
 });
 ```
 
-When the STOMP client receives a message, it dispatches `addMessage` to the store. Components that need real-time data simply select from the store — no prop drilling, no context juggling.
+When the STOMP client receives a message, it dispatches `addMessage` to the store. Components that need real-time data simply select from the store. No prop drilling, no context juggling.
 
 ## Connecting the Client to the Store
 
@@ -97,7 +109,7 @@ stompClient.onDisconnect = () => {
 };
 ```
 
-This pattern keeps the STOMP logic decoupled from React. The store acts as a buffer — STOMP pushes data in, React reads data out.
+This pattern keeps the STOMP logic decoupled from React. The store acts as a buffer. STOMP pushes data in, React reads data out.
 
 ## Activating on App Mount
 
@@ -129,7 +141,7 @@ function sendMessage(destination: string, body: object) {
 }
 ```
 
-Components call this function when the user triggers an action. The response comes back through the subscription and flows into Redux — maintaining unidirectional data flow even with bidirectional communication.
+Components call this function when the user triggers an action. The response comes back through the subscription and flows into Redux, maintaining unidirectional data flow even with bidirectional communication.
 
 ## Lessons from Production Use
 
@@ -143,7 +155,7 @@ STOMP preserves message order within a single subscription, but if you're subscr
 
 ### Cleanup Subscriptions
 
-If your application has routes that subscribe to different topics, unsubscribe when the component unmounts. STOMP subscriptions return an object with an `unsubscribe` method — call it in your cleanup function to avoid memory leaks and stale handlers.
+If your application has routes that subscribe to different topics, unsubscribe when the component unmounts. STOMP subscriptions return an object with an `unsubscribe` method. Call it in your cleanup function to avoid memory leaks and stale handlers.
 
 ### Don't Store Everything
 
@@ -156,6 +168,6 @@ This architecture works well when:
 - Your backend already speaks STOMP (Spring Boot, RabbitMQ with STOMP plugin)
 - Multiple components need access to real-time data
 - You want predictable state management for asynchronous, push-based data
-- Connection lifecycle (reconnect, heartbeat) needs to be robust
+- Connection lifecycle (reconnect, heartbeat) needs to handle failures well
 
-For simpler use cases — a single component listening to one stream — a direct WebSocket hook might be sufficient. The Redux layer adds value when real-time state is shared across the application.
+For simpler cases (a single component listening to one stream), a direct WebSocket hook might be sufficient. The Redux layer adds value when real-time state is shared across the application.
