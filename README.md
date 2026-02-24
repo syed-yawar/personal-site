@@ -15,7 +15,7 @@ A free, open-source portfolio website template built with [Next.js](https://next
 - **Modern tech stack.** Next.js 16, React 19, TypeScript, Tailwind CSS v4.
 - **Cloudflare ready.** Deploys automatically to Cloudflare Pages.
 - **Dark mode.** System preference detection with manual toggle.
-- **Blog ready.** Markdown posts with RSS feed (optional).
+- **Blog ready.** Markdown posts with RSS feed (optional). Use `MarkdownRenderer` for consistent markdown rendering (About page, blog posts). Mermaid diagrams supported in writing and case studies. See [content style guide](./docs/content-style.md) for writing like a human engineer.
 - **AI-friendly.** Works great with GitHub Copilot, Claude, and Cursor.
 
 ## Get Started
@@ -42,6 +42,8 @@ No local setup needed. Everything runs in your browser.
 ## Customize It
 
 Follow the **[adapting guide](./docs/adapting-guide.md)** for a step-by-step checklist.
+
+**Content style:** When adding blog posts, about copy, or case studies, write like a human software engineer. Avoid emojis, em dashes, and AI-style phrasing. See [content style guide](./docs/content-style.md).
 
 **Pro tip:** Open the adapting guide in Copilot Chat or your favorite AI assistant and ask it to help you customize each section.
 
