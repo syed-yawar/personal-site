@@ -5,6 +5,7 @@
 
 @layer base {
   html {
+    overflow-x: hidden;
     scroll-behavior: smooth;
   }
 
@@ -58,6 +59,7 @@
   }
 
   body {
+    overflow-x: hidden;
     background-color: var(--color-bg-alt);
     color: var(--color-fg);
     font-family: var(--font-sans);
