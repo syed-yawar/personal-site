@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import Image from 'next/image';
 
+import MermaidDiagram from '@/components/Template/MermaidDiagram';
 import type { CaseStudy } from '@/types/content';
 
 interface CaseStudyDetailProps {
@@ -165,6 +166,12 @@ export default function CaseStudyDetail({ caseStudy }: CaseStudyDetailProps) {
           items={architecture?.dataFlow}
           emptyText="Data flow details are unavailable."
         />
+
+        {architecture?.mermaid && (
+          <div className="mermaid-section">
+            <MermaidDiagram code={architecture.mermaid} />
+          </div>
+        )}
 
         {architectureDiagram && (
           <figure>

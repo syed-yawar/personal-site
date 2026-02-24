@@ -73,6 +73,8 @@ export interface CaseStudyArchitecture {
   backend: string[];
   integrations: string[];
   dataFlow: string[];
+  /** Optional Mermaid diagram (e.g. flowchart, sequenceDiagram). Renders in Architecture section. */
+  mermaid?: string;
 }
 
 export interface CaseStudyNarrative {
